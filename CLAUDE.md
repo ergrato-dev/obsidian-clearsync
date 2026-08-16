@@ -52,6 +52,16 @@ Detalle completo de restricciones técnicas en [`docs/es/requisitos/restriccione
 
 Conventional Commits, con cuerpo que explique **qué**, **para qué** e **impacto** del cambio.
 
+### 3.2b Ramas
+
+Flujo `feature/* → develop → main`:
+
+- `main` — solo releases estables (tags de versión, ver `ROADMAP.md`). Nunca se commitea directo acá.
+- `develop` — rama default del repo, integra features terminadas. Base de todo `feature/*` nuevo.
+- `feature/<rf-o-tema>` — una por RF/tarea (ej. `feature/rf-001-dropbox-auth`), sale de `develop`, vuelve a `develop` vía PR.
+
+`develop → main` solo al cerrar un milestone del roadmap (v0.1, v0.2, ...), no por cada feature.
+
 ### 3.3 Documentación de requisitos
 
 Todo cambio funcional relevante debe tener su RF/RNF/HU correspondiente en `docs/{es,en}/requisitos/` **antes** de implementarse — ambos idiomas, no solo español. Formato: ver ejemplos existentes en esa carpeta (tabla de identificación + descripción + criterios).
