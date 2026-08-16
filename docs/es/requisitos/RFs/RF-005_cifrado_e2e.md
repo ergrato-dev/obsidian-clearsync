@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                            |
-| ------------- | -------------------------------- |
-| **ID**        | RF-005                           |
-| **Nombre**    | Cifrado end-to-end del contenido |
-| **Módulo**    | Seguridad / Cifrado              |
-| **Prioridad** | Crítica                          |
-| **Estado**    | Planificado                      |
-| **Fecha**     | Agosto 2026                      |
+| Campo         | Valor                                                                                                                                                             |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ID**        | RF-005                                                                                                                                                            |
+| **Nombre**    | Cifrado end-to-end del contenido                                                                                                                                  |
+| **Módulo**    | Seguridad / Cifrado                                                                                                                                               |
+| **Prioridad** | Crítica                                                                                                                                                           |
+| **Estado**    | En progreso — Crypto Layer (`src/crypto/`) implementada y testeada; falta integrarla al pipeline real de subida/descarga (Sync Engine todavía no orquesta ciclos) |
+| **Fecha**     | Agosto 2026                                                                                                                                                       |
 
 ---
 
@@ -68,3 +68,4 @@ Todo contenido del vault se cifra localmente antes de subirse al proveedor de sy
 - RN-001: La contraseña de cifrado nunca se envía a Dropbox ni se almacena en texto plano (RS-001).
 - RN-002: Nombres de archivo y estructura de carpetas se evalúan para cifrado/ofuscación si el proveedor los expone en su API (a definir en implementación, RT-005).
 - RN-003: Perder la contraseña de cifrado implica perder acceso al contenido remoto — el plugin advierte esto explícitamente durante la configuración inicial.
+- RN-004: El salt de derivación de clave se guarda en el vault remoto (sin cifrar — no es secreto), no solo localmente. Un segundo dispositivo que se vincula a un vault existente (RF-006 CA-002.4) debe descargar ese salt antes de derivar su clave; si cada dispositivo genera su propio salt local, la misma contraseña deriva claves distintas y ningún dispositivo puede descifrar el contenido del otro. Descubierto al implementar RF-006 — ver `AUDITORIA.md`. Pendiente de una implementación real de `SyncProvider` para completarse.

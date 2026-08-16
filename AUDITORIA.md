@@ -72,6 +72,38 @@ Este documento es solo en español (instrucciones internas / bitácora técnica,
 
 **Alcance no cubierto:** esta clasificación (RF-002) no distingue "el archivo nunca existió de este lado" de "el archivo se borró de este lado" — ambos casos aparecen como hash `undefined`. Propagación de borrado queda pendiente como RF futuro.
 
+## 2026-08-16 — PBKDF2 600.000 iteraciones + `Uint8Array<ArrayBuffer>` explícito
+
+**Decisión:** 600.000 iteraciones PBKDF2-HMAC-SHA256 (guía OWASP 2023 vigente); IV de 12 bytes para AES-GCM (recomendación NIST SP 800-38D); tipar `salt`/`iv` como `Uint8Array<ArrayBuffer>` en vez de `Uint8Array` a secas.
+
+**Por qué:** `tsc` rechazaba pasar un `Uint8Array` (tipo por defecto, potencialmente respaldado por `SharedArrayBuffer` en los tipos de lib actuales) donde la Web Crypto API espera `BufferSource`. La opción rápida era castear con `as BufferSource` en cada call site; se prefirió tipar la fuente (`generateSalt()`, el campo `iv` de `EncryptedPayload`) para que el tipo correcto se propague solo, sin casteos dispersos.
+
+**Rendimiento:** 600k iteraciones no volvieron lenta la suite de tests (68 tests, ~1.5s total) — Node/Electron usan la implementación nativa de Web Crypto.
+
+## 2026-08-16 — El salt de cifrado debe vivir en el vault remoto, no solo local
+
+**Hallazgo:** implementando RF-006 (vincular a un vault existente, HU-002 CA-002.4) me di cuenta de que `SaltStore` (RF-005) solo persistía el salt localmente vía `PluginDataStore`. Cada dispositivo tiene su propio `data.json` — un segundo dispositivo que nunca sincronizó llamaría `getOrCreate()` y generaría su propio salt aleatorio. Con la misma contraseña pero salt distinto, PBKDF2 deriva una clave AES distinta, y ningún dispositivo puede descifrar el contenido del otro. El test original de RF-005 que "probaba" el escenario multi-dispositivo compartía el mismo `PluginDataStore` fake entre "dispositivo A" y "dispositivo B", ocultando el problema.
+
+**Decisión:** el salt debe guardarse también en el vault remoto (sin cifrar — no es secreto, ver RT-005/RN-004 en `docs/{es,en}/requisitos/RFs/RF-005_cifrado_e2e.md`). `SaltStore` gana un método `set()` explícito para sembrar el salt desde una fuente remota, separado de `getOrCreate()` (que solo debe usarse en el path de "vault nuevo", RF-006 CA-002.6). Se agregó `has()` para poder distinguir "primera vez configurando contraseña" (pide confirmación + advertencia) de "reingresar contraseña en un reinicio" (un solo campo) sin generar un salt como efecto secundario.
+
+**Pendiente:** la lectura/escritura real del salt remoto necesita un `SyncProvider` funcional (todavía no existe, ver RT-004). RF-006 documenta este bloqueo explícitamente en su campo "Estado" y en `src/setup/vaultLinkMode.ts`.
+
+## 2026-08-16 — `logSyncEvent()` como único punto de entrada para loguear
+
+**Decisión:** en vez de dejar que cualquier módulo futuro llame `SyncLog.append()` directamente, `logSyncEvent()` es el único punto de entrada previsto: siempre loguea, y además dispara un `Notice` cuando `result === "error"` o `action === "conflict"`.
+
+**Por qué:** RF-007 RN-001 exige que ningún fallo pase sin dejar rastro visible — no solo en el log (que el usuario tiene que ir a mirar), sino también como notificación. Si cada futuro call site pudiera elegir entre loguear con o sin notificar, sería fácil que alguien llame `SyncLog.append()` a secas para un error y rompa RN-001 sin querer. Centralizar la decisión en una sola función la hace imposible de saltear por accidente.
+
+**Alcance no cubierto:** `logSyncEvent()` importa `Notice` de Obsidian, así que queda fuera del gate de cobertura (mismo criterio que `DropboxAuthManager`/`SettingsTab`) — la lógica real (rotación del log, formato de entradas) sí está testeada en `SyncLog`/`formatLogEntry`.
+
+## 2026-08-16 — `withBackoff` envuelve `HttpRequester`, no cada función de `dropboxOAuth.ts`
+
+**Decisión:** el backoff/retry (RF-009) se implementa como un higher-order function que envuelve cualquier `HttpRequester` (`withBackoff(request): HttpRequester`), no como lógica dentro de `exchangeCodeForTokens`/`refreshAccessToken`/`fetchAccountEmail` individualmente.
+
+**Por qué:** mantiene `dropboxOAuth.ts` (RF-001) sin saber nada de reintentos — cada función sigue siendo "construir request, parsear response". `DropboxAuthManager.ts` arma un único `resilientRequester = withBackoff(obsidianRequester)` y lo pasa a las tres llamadas reales. El mismo wrapper sirve para cualquier futuro `SyncProvider` sin duplicar la lógica de backoff en cada uno (Strategy/Adapter, ver `docs/{es,en}/conceptos/patrones-arquitectonicos.md`).
+
+**Alcance:** `HttpResponse.headers` se agregó como campo opcional (retrocompatible — ningún test viejo se rompió) para poder leer `Retry-After`. RF-009 paso 5 ("el resto del ciclo no se bloquea por un archivo reintentando") no aplica todavía porque no existe un ciclo de sync multi-archivo — es la primera vez que un RF de esta lista queda genuinamente completo salvo por una parte que directamente no tiene sentido implementar sin su dependencia.
+
 ## 2026-08-16 — RF-013/RF-014: v0.1 necesitaba un RF nuevo, no en la lista original
 
 **Hallazgo:** al terminar RF-009, los 6 RFs de v0.1 (001,002,005,006,007,009) tenían código real y testeado, pero ninguno movía un archivo de verdad — faltaba (a) una implementación concreta de `SyncProvider` contra la API de Dropbox, y (b) el ciclo que conecta hashing + cifrado + proveedor + log en una sincronización real. Ninguno de los dos estaba en la lista original RF-001..012.
