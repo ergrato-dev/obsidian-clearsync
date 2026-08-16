@@ -1,12 +1,23 @@
 import { Plugin } from "obsidian";
 import { ClearSyncSettingTab } from "./settings/SettingsTab";
 import { DEFAULT_SETTINGS, type ClearSyncSettings } from "./settings/ClearSyncSettings";
+import { PluginDataStore } from "./storage/PluginDataStore";
+import type { PluginDataShape } from "./storage/schema";
+import { TokenStore } from "./auth/TokenStore";
+import { DropboxAuthManager } from "./auth/DropboxAuthManager";
 
 export default class ClearSyncPlugin extends Plugin {
 	declare settings: ClearSyncSettings;
 	statusBarItem!: HTMLElement;
+	dataStore!: PluginDataStore<PluginDataShape>;
+	tokenStore!: TokenStore;
+	dropboxAuth!: DropboxAuthManager;
 
 	async onload(): Promise<void> {
+		this.dataStore = new PluginDataStore<PluginDataShape>(this);
+		this.tokenStore = new TokenStore(this.dataStore);
+		this.dropboxAuth = new DropboxAuthManager(this.tokenStore);
+
 		await this.loadSettings();
 
 		// RF-007 — status bar reflects idle/syncing/error/conflict once Sync Engine exists.
@@ -21,10 +32,11 @@ export default class ClearSyncPlugin extends Plugin {
 	}
 
 	async loadSettings(): Promise<void> {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+		const data = await this.dataStore.read();
+		this.settings = Object.assign({}, DEFAULT_SETTINGS, data.settings);
 	}
 
 	async saveSettings(): Promise<void> {
-		await this.saveData(this.settings);
+		await this.dataStore.patch({ settings: this.settings });
 	}
 }

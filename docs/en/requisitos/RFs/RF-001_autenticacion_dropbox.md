@@ -16,7 +16,7 @@
 | **Name**     | Dropbox Authentication |
 | **Module**   | Authentication         |
 | **Priority** | High                   |
-| **Status**   | Planned                |
+| **Status**   | In progress — code ready, pending Dropbox app registration (see `src/auth/dropboxConfig.ts`) |
 | **Date**     | August 2026            |
 
 ---

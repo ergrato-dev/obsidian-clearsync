@@ -29,3 +29,10 @@ Este documento es solo en español (instrucciones internas / bitácora técnica,
 - `docs/{es,en}/setup/desarrollo.md`: flujo previsto de entorno de desarrollo (symlink a vault de prueba, watch mode, tests, lint).
 - `AUDITORIA.md`, `BITACORA.md`, skills en `.claude/skills/` (`new-rf`, `new-sync-provider`, `security-review`, `commit-message`).
 - **Cierre de la fase de documentación** — próximo paso: implementación de código, empezando por el andamiaje del proyecto (`package.json`, `manifest.json`, `esbuild.config.mjs`) según `docs/es/requisitos/restricciones.md`.
+
+## 2026-08-16 (cont.) — Andamiaje de código y RF-001
+
+- Andamiaje v0.1: `package.json`/pnpm-lock, `manifest.json`, `versions.json`, `tsconfig.json`, `esbuild.config.mjs`, `eslint.config.mjs`, `vitest.config.ts` (gate 85%), `src/main.ts`, `src/i18n/`, `src/settings/`, `src/sync/SyncProvider.ts` (contrato Strategy, sin implementación Dropbox todavía). TypeScript bajado de 7.0 a 5.9 (typescript-eslint aún no soporta TS7).
+- Adoptado flujo de ramas `feature/* → develop → main` (`CLAUDE.md` § 3.2b); `develop` es la rama default en GitHub. Topics agregados al repo para descubribilidad.
+- RF-001 (autenticación Dropbox, OAuth2 + PKCE) implementado en `feature/rf-001-dropbox-auth`: `src/auth/{pkce,dropboxOAuth,CallbackServer,TokenStore,DropboxAuthManager,dropboxConfig}.ts` + `src/storage/PluginDataStore.ts` (Repository genérico para `data.json`, evita que settings/tokens se pisen entre sí). 29 tests, 95.6% cobertura. Pendiente: el maintainer debe registrar la app en Dropbox App Console y reemplazar `DROPBOX_CLIENT_ID` en `dropboxConfig.ts` antes de que el flujo funcione contra la API real.
+- README: agregado disclaimer de estado pre-alfa / sin afiliación con Dropbox u Obsidian (es+en).
