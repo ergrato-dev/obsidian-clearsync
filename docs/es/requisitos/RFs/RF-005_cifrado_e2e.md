@@ -16,7 +16,7 @@
 | **Nombre**    | Cifrado end-to-end del contenido |
 | **Módulo**    | Seguridad / Cifrado              |
 | **Prioridad** | Crítica                          |
-| **Estado**    | Planificado                      |
+| **Estado**    | En progreso — Crypto Layer (`src/crypto/`) implementada y testeada; falta integrarla al pipeline real de subida/descarga (Sync Engine todavía no orquesta ciclos) |
 | **Fecha**     | Agosto 2026                      |
 
 ---

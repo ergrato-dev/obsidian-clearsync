@@ -6,6 +6,8 @@ import type { PluginDataShape } from "./storage/schema";
 import { TokenStore } from "./auth/TokenStore";
 import { DropboxAuthManager } from "./auth/DropboxAuthManager";
 import { HashCache } from "./sync/HashCache";
+import { SaltStore } from "./crypto/SaltStore";
+import { EncryptionManager } from "./crypto/EncryptionManager";
 
 export default class ClearSyncPlugin extends Plugin {
 	declare settings: ClearSyncSettings;
@@ -14,6 +16,7 @@ export default class ClearSyncPlugin extends Plugin {
 	tokenStore!: TokenStore;
 	dropboxAuth!: DropboxAuthManager;
 	hashCache!: HashCache;
+	encryption!: EncryptionManager;
 
 	async onload(): Promise<void> {
 		this.dataStore = new PluginDataStore<PluginDataShape>(this);
@@ -22,6 +25,9 @@ export default class ClearSyncPlugin extends Plugin {
 		// RF-002 — not yet driven by a Sync Engine loop; RF-002 ships the hashing/
 		// classification engine and its cache, wiring to a live vault scan is future work.
 		this.hashCache = new HashCache(this.dataStore);
+		// RF-005 — unlock() isn't called anywhere yet; that's RF-006's setup wizard,
+		// which collects the vault password and calls it.
+		this.encryption = new EncryptionManager(new SaltStore(this.dataStore));
 
 		await this.loadSettings();
 

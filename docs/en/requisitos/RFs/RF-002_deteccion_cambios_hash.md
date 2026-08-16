@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                         |
-| ------------ | ----------------------------- |
-| **ID**       | RF-002                        |
-| **Name**     | Content-hash change detection |
-| **Module**   | Sync Engine                   |
-| **Priority** | High                          |
+| Field        | Value                                                                                                                                                                              |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ID**       | RF-002                                                                                                                                                                             |
+| **Name**     | Content-hash change detection                                                                                                                                                      |
+| **Module**   | Sync Engine                                                                                                                                                                        |
+| **Priority** | High                                                                                                                                                                               |
 | **Status**   | In progress — hashing/classification engine implemented and tested; still needs wiring to a real vault walk and a `SyncProvider` (Sync Engine doesn't orchestrate full cycles yet) |
-| **Date**     | August 2026                   |
+| **Date**     | August 2026                                                                                                                                                                        |
 
 ---
 
