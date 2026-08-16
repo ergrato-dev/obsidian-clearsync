@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                  |
-| ------------ | ---------------------- |
-| **ID**       | RF-001                 |
-| **Name**     | Dropbox Authentication |
-| **Module**   | Authentication         |
-| **Priority** | High                   |
+| Field        | Value                                                                                        |
+| ------------ | -------------------------------------------------------------------------------------------- |
+| **ID**       | RF-001                                                                                       |
+| **Name**     | Dropbox Authentication                                                                       |
+| **Module**   | Authentication                                                                               |
+| **Priority** | High                                                                                         |
 | **Status**   | In progress — code ready, pending Dropbox app registration (see `src/auth/dropboxConfig.ts`) |
-| **Date**     | August 2026            |
+| **Date**     | August 2026                                                                                  |
 
 ---
 

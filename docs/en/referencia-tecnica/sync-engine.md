@@ -36,14 +36,15 @@
 
 1. For each file within scope (excluding RF-008 patterns), compute `localHash = SHA-256(plain-text content)` via Web Crypto `subtle.digest`.
 2. Obtain `remoteHash` — computed the same way after downloading content/metadata from the provider, or via a hash provided by the API if trustworthy (must be validated against Dropbox API v2's `content_hash`, which uses its own algorithm distinct from SHA-256 — **do not assume direct compatibility**; recompute locally after download if needed).
-3. Compare `localHash`, `remoteHash` against the Hash Cache's `baseHash`:
+3. First compare `localHash` against `remoteHash` directly: if they match, there's nothing to sync — this covers the edge case of two devices independently creating identical content with no shared `baseHash` yet. Comparing only against history would misclassify that case as a conflict (see `tests/changeDetection.test.ts`).
+4. If they differ, only then compare each against the Hash Cache's `baseHash`:
 
-| localHash == baseHash | remoteHash == baseHash | Result                                |
-| --------------------- | ---------------------- | ------------------------------------- |
-| Yes                   | Yes                    | No changes — skipped                  |
-| No                    | Yes                    | Local change — upload                 |
-| Yes                   | No                     | Remote change — download              |
-| No                    | No                     | Real conflict — see merge/binary flow |
+| localHash == remoteHash | localHash == baseHash | remoteHash == baseHash | Result                                |
+| ----------------------- | --------------------- | ---------------------- | ------------------------------------- |
+| Yes                     | —                     | —                      | No changes — skipped                  |
+| No                      | Yes                   | No                     | Remote change — download              |
+| No                      | No                    | Yes                    | Local change — upload                 |
+| No                      | No                    | No                     | Real conflict — see merge/binary flow |
 
 ## Three-way merge (RF-003)
 

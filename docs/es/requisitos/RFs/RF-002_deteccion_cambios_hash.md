@@ -16,7 +16,7 @@
 | **Nombre**    | Detección de cambios por hash de contenido |
 | **Módulo**    | Sync Engine                                |
 | **Prioridad** | Alta                                       |
-| **Estado**    | Planificado                                |
+| **Estado**    | En progreso — motor de hashing/clasificación implementado y testeado; falta integrarlo a un recorrido real del vault y a un `SyncProvider` (Sync Engine todavía no orquesta ciclos completos) |
 | **Fecha**     | Agosto 2026                                |
 
 ---
