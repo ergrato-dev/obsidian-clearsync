@@ -16,7 +16,7 @@
 | **Name**     | Initial setup and vault linking |
 | **Module**   | Configuration                   |
 | **Priority** | High                            |
-| **Status**   | Planned                         |
+| **Status**   | In progress — 3-step wizard implemented and tested (`src/setup/`); steps 4/5 (link to existing vault, password verification against remote) blocked on a real `SyncProvider` |
 | **Date**     | August 2026                     |
 
 ---

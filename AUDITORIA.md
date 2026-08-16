@@ -80,6 +80,14 @@ Este documento es solo en español (instrucciones internas / bitácora técnica,
 
 **Rendimiento:** 600k iteraciones no volvieron lenta la suite de tests (68 tests, ~1.5s total) — Node/Electron usan la implementación nativa de Web Crypto.
 
+## 2026-08-16 — El salt de cifrado debe vivir en el vault remoto, no solo local
+
+**Hallazgo:** implementando RF-006 (vincular a un vault existente, HU-002 CA-002.4) me di cuenta de que `SaltStore` (RF-005) solo persistía el salt localmente vía `PluginDataStore`. Cada dispositivo tiene su propio `data.json` — un segundo dispositivo que nunca sincronizó llamaría `getOrCreate()` y generaría su propio salt aleatorio. Con la misma contraseña pero salt distinto, PBKDF2 deriva una clave AES distinta, y ningún dispositivo puede descifrar el contenido del otro. El test original de RF-005 que "probaba" el escenario multi-dispositivo compartía el mismo `PluginDataStore` fake entre "dispositivo A" y "dispositivo B", ocultando el problema.
+
+**Decisión:** el salt debe guardarse también en el vault remoto (sin cifrar — no es secreto, ver RT-005/RN-004 en `docs/{es,en}/requisitos/RFs/RF-005_cifrado_e2e.md`). `SaltStore` gana un método `set()` explícito para sembrar el salt desde una fuente remota, separado de `getOrCreate()` (que solo debe usarse en el path de "vault nuevo", RF-006 CA-002.6). Se agregó `has()` para poder distinguir "primera vez configurando contraseña" (pide confirmación + advertencia) de "reingresar contraseña en un reinicio" (un solo campo) sin generar un salt como efecto secundario.
+
+**Pendiente:** la lectura/escritura real del salt remoto necesita un `SyncProvider` funcional (todavía no existe, ver RT-004). RF-006 documenta este bloqueo explícitamente en su campo "Estado" y en `src/setup/vaultLinkMode.ts`.
+
 ## 2026-08-16 — Cobertura de tests mínima 85%
 
 **Decisión:** cobertura mínima de 85% (líneas/branches) verificada en CI, obligatoria para hashing, merge, cifrado/descifrado y manejo de conflictos.

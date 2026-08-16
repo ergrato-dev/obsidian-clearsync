@@ -27,6 +27,13 @@ export class EncryptionManager {
 		return this.key !== undefined;
 	}
 
+	/** RF-006 — true once a password has ever been set on this device (see SaltStore.has()
+	 * for why this must not itself generate a salt). Lets Settings ask for a password
+	 * confirmation + warning only the first time, not on every session unlock. */
+	async hasExistingPassword(): Promise<boolean> {
+		return this.saltStore.has();
+	}
+
 	async encryptContent(plaintext: string | ArrayBuffer): Promise<EncryptedPayload> {
 		if (!this.key) throw new EncryptionNotUnlockedError();
 		return encrypt(plaintext, this.key);
