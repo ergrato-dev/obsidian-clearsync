@@ -6,18 +6,20 @@
 
 # Roadmap
 
-Sin fechas comprometidas — el proyecto está en fase de documentación, todavía no hay código (`BITACORA.md`). El orden de versiones refleja dependencias reales entre RFs, no un calendario fijo.
+Sin fechas comprometidas. El orden de versiones refleja dependencias reales entre RFs, no un calendario fijo. Estado detallado de cada RF: ver su campo "Estado" en `docs/es/requisitos/RFs/` y `BITACORA.md`.
 
 ### v0.1 — Núcleo de sync (MVP)
 
-Sync completo, cifrado, con Dropbox — sin resolución de conflictos avanzada todavía.
+Sync completo, cifrado, con Dropbox — sin resolución de conflictos avanzada todavía. Un ítem tildado significa que el RF está implementado y testeado, no que v0.1 completo ya sincroniza de punta a punta — eso requiere RF-013 y RF-014 también tildados.
 
 - [ ] RF-001 — Autenticación con Dropbox (OAuth2 + PKCE)
 - [ ] RF-002 — Detección de cambios por hash de contenido
 - [ ] RF-005 — Cifrado end-to-end
 - [ ] RF-006 — Configuración inicial y vinculación del vault
 - [ ] RF-007 — Estado y log de sincronización visible en UI
-- [ ] RF-009 — Manejo de rate-limiting y backoff
+- [x] RF-009 — Manejo de rate-limiting y backoff
+- [ ] RF-013 — Implementación de DropboxProvider
+- [ ] RF-014 — Sync Engine: orquestador del ciclo de sync (sin resolución de conflictos)
 
 ### v0.2 — Resolución de conflictos
 
@@ -53,18 +55,20 @@ Ningún ítem se agrega sin su RF documentado y aprobado primero (RO-003). Ver s
 
 # Roadmap
 
-No committed dates — the project is in the documentation phase, there's no code yet (`BITACORA.md`). Version ordering reflects real dependencies between RFs, not a fixed calendar.
+No committed dates. Version ordering reflects real dependencies between RFs, not a fixed calendar. Per-RF detail: see each one's "Status" field under `docs/en/requisitos/RFs/` and `BITACORA.md`.
 
 ### v0.1 — Sync core (MVP)
 
-Full encrypted sync with Dropbox — no advanced conflict resolution yet.
+Full encrypted sync with Dropbox — no advanced conflict resolution yet. A checked item means that RF is implemented and tested, not that all of v0.1 already syncs end to end — that also needs RF-013 and RF-014 checked.
 
 - [ ] RF-001 — Dropbox authentication (OAuth2 + PKCE)
 - [ ] RF-002 — Content-hash change detection
 - [ ] RF-005 — End-to-end encryption
 - [ ] RF-006 — Initial setup and vault linking
 - [ ] RF-007 — Sync status and log visible in the UI
-- [ ] RF-009 — Rate-limiting and backoff handling
+- [x] RF-009 — Rate-limiting and backoff handling
+- [ ] RF-013 — DropboxProvider implementation
+- [ ] RF-014 — Sync Engine: sync cycle orchestrator (no conflict resolution)
 
 ### v0.2 — Conflict resolution
 
