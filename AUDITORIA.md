@@ -72,6 +72,16 @@ Este documento es solo en español (instrucciones internas / bitácora técnica,
 
 **Alcance no cubierto:** esta clasificación (RF-002) no distingue "el archivo nunca existió de este lado" de "el archivo se borró de este lado" — ambos casos aparecen como hash `undefined`. Propagación de borrado queda pendiente como RF futuro.
 
+## 2026-08-16 — RF-013/RF-014: v0.1 necesitaba un RF nuevo, no en la lista original
+
+**Hallazgo:** al terminar RF-009, los 6 RFs de v0.1 (001,002,005,006,007,009) tenían código real y testeado, pero ninguno movía un archivo de verdad — faltaba (a) una implementación concreta de `SyncProvider` contra la API de Dropbox, y (b) el ciclo que conecta hashing + cifrado + proveedor + log en una sincronización real. Ninguno de los dos estaba en la lista original RF-001..012.
+
+**Decisión:** documentarlos como dos RFs separados en vez de uno solo — RF-013 (`DropboxProvider`, la implementación concreta del Strategy) y RF-014 (Sync Engine, el orquestador). Mantiene la separación Strategy/Adapter ya documentada en `patrones-arquitectonicos.md`: el proveedor no decide qué sincronizar, el orquestador no sabe hablar con Dropbox directamente.
+
+**Alcance de RF-014:** explícitamente sin resolución de conflictos (RF-003/RF-004 son v0.2 del roadmap) — un archivo en conflicto se detecta, se loguea y se deja intacto, sin fusionar. Sync corre manual (botón), no en background.
+
+**Estado:** solo documentado (RO-003) — sin implementar todavía. `ROADMAP.md` (es/en) actualizado con ambos bajo v0.1.
+
 ## 2026-08-16 — Cobertura de tests mínima 85%
 
 **Decisión:** cobertura mínima de 85% (líneas/branches) verificada en CI, obligatoria para hashing, merge, cifrado/descifrado y manejo de conflictos.
