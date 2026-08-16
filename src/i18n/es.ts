@@ -29,4 +29,6 @@ export const es: Record<string, string> = {
 	"settings.setup.folderConfirmButton": "Confirmar carpeta",
 	"settings.setup.complete":
 		"✓ Configuración completa. El sync automático arrancará cuando el motor de sync esté implementado.",
+	"settings.log.title": "Registro de sincronización",
+	"settings.log.empty": "Todavía no hay operaciones de sync.",
 };

@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                                         |
-| ------------- | --------------------------------------------- |
-| **ID**        | RF-006                                        |
-| **Nombre**    | Configuración inicial y vinculación del vault |
-| **Módulo**    | Configuración                                 |
-| **Prioridad** | Alta                                          |
+| Campo         | Valor                                                                                                                                                                                               |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ID**        | RF-006                                                                                                                                                                                              |
+| **Nombre**    | Configuración inicial y vinculación del vault                                                                                                                                                       |
+| **Módulo**    | Configuración                                                                                                                                                                                       |
+| **Prioridad** | Alta                                                                                                                                                                                                |
 | **Estado**    | En progreso — asistente de 3 pasos implementado y testeado (`src/setup/`); pasos 4/5 (vincular a vault existente, verificación de contraseña contra el remoto) bloqueados en un `SyncProvider` real |
-| **Fecha**     | Agosto 2026                                   |
+| **Fecha**     | Agosto 2026                                                                                                                                                                                         |
 
 ---
 

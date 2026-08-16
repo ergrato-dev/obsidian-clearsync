@@ -4,6 +4,7 @@ import { resolveLocale, translate, type LocalePreference } from "../i18n";
 import type { DropboxTokens } from "../auth/DropboxTokens";
 import { SetupWizard } from "../setup/SetupWizard";
 import { passwordsMatch } from "../setup/passwordConfirmation";
+import { formatLogEntry } from "../sync/formatLogEntry";
 
 type Translate = (key: string) => string;
 
@@ -61,6 +62,7 @@ export class ClearSyncSettingTab extends PluginSettingTab {
 		this.renderAccountSection(containerEl, t, tokens);
 		this.renderFolderStep(containerEl, t);
 		this.renderLanguageSection(containerEl, t);
+		await this.renderLogSection(containerEl, t);
 	}
 
 	private renderAccountSection(
@@ -185,6 +187,20 @@ export class ClearSyncSettingTab extends PluginSettingTab {
 						this.display();
 					}),
 			);
+	}
+
+	private async renderLogSection(containerEl: HTMLElement, t: Translate): Promise<void> {
+		// RF-007 — stays empty until a Sync Engine loop calls logSyncEvent() (RF-002+).
+		new Setting(containerEl).setHeading().setName(t("settings.log.title"));
+		const entries = await this.plugin.syncLog.all();
+		if (entries.length === 0) {
+			containerEl.createEl("p", { text: t("settings.log.empty") });
+			return;
+		}
+		const list = containerEl.createEl("ul");
+		for (const entry of entries.slice().reverse()) {
+			list.createEl("li", { text: formatLogEntry(entry) });
+		}
 	}
 
 	private renderLanguageSection(containerEl: HTMLElement, t: Translate): void {

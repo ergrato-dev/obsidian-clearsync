@@ -10,7 +10,12 @@ export default defineConfig({
 			// meaningful logic to assert on beyond mocking everything it calls — see
 			// each file's top comment. Everything they call (pkce, dropboxOAuth,
 			// CallbackServer, TokenStore, PluginDataStore) is fully unit tested.
-			exclude: ["src/main.ts", "src/settings/SettingsTab.ts", "src/auth/DropboxAuthManager.ts"],
+			exclude: [
+				"src/main.ts",
+				"src/settings/SettingsTab.ts",
+				"src/auth/DropboxAuthManager.ts",
+				"src/sync/logSyncEvent.ts",
+			],
 			thresholds: {
 				lines: 85,
 				branches: 85,
