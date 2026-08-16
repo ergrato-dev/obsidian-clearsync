@@ -29,15 +29,15 @@ graph TD
 
 ## Component descriptions
 
-| Component          | Responsibility                                                                    | Related RF/RNF          |
-| ---------------------| ---------------------------------------------------------------------------------------| --------------------------|
-| **Sync Engine**        | Orchestrates the sync cycle: change detection, scheduling, coordinates other modules      | RF-002, RNF-002            |
-| **Local Hash Cache**    | Stores the last commonly-synced hash per file (base/local/remote)                          | RF-002                      |
-| **Crypto Layer**        | Encrypts/decrypts content with AES-256-GCM, derives the key with PBKDF2/scrypt              | RF-005, RT-005               |
-| **SyncProvider**         | Interface abstracting the cloud provider; `DropboxProvider` is the MVP implementation        | RT-004, RNF-004.4              |
-| **Conflict Resolver**     | Three-way merge for text (RF-003), conflicted-copy for binaries (RF-004)                      | RF-003, RF-004                  |
-| **Sync Log**               | Local history of operations (uploaded/downloaded/merged/conflict)                              | RF-007                            |
-| **Settings UI**             | Configuration (account, encryption, exclusions, language) and visible status                    | RF-006, RF-007, RF-008, RF-011     |
+| Component             | Responsibility                                                                        | Related RF/RNF                 |
+| --------------------- | ------------------------------------------------------------------------------------- | ------------------------------ |
+| **Sync Engine**       | Orchestrates the sync cycle: change detection, scheduling, coordinates other modules  | RF-002, RNF-002                |
+| **Local Hash Cache**  | Stores the last commonly-synced hash per file (base/local/remote)                     | RF-002                         |
+| **Crypto Layer**      | Encrypts/decrypts content with AES-256-GCM, derives the key with PBKDF2/scrypt        | RF-005, RT-005                 |
+| **SyncProvider**      | Interface abstracting the cloud provider; `DropboxProvider` is the MVP implementation | RT-004, RNF-004.4              |
+| **Conflict Resolver** | Three-way merge for text (RF-003), conflicted-copy for binaries (RF-004)              | RF-003, RF-004                 |
+| **Sync Log**          | Local history of operations (uploaded/downloaded/merged/conflict)                     | RF-007                         |
+| **Settings UI**       | Configuration (account, encryption, exclusions, language) and visible status          | RF-006, RF-007, RF-008, RF-011 |
 
 ## Core design principle
 

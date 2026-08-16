@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                              |
-| ------------ | --------------------------------------- |
-| **ID**       | RF-008                                    |
-| **Name**     | Selective file/folder exclusion             |
-| **Module**   | Configuration                                |
-| **Priority** | Medium                                          |
-| **Status**   | Planned                                            |
-| **Date**     | August 2026                                          |
+| Field        | Value                           |
+| ------------ | ------------------------------- |
+| **ID**       | RF-008                          |
+| **Name**     | Selective file/folder exclusion |
+| **Module**   | Configuration                   |
+| **Priority** | Medium                          |
+| **Status**   | Planned                         |
+| **Date**     | August 2026                     |
 
 ---
 
@@ -29,9 +29,9 @@ The user must be able to exclude specific folders or file patterns from the sync
 
 ## Inputs
 
-| Field                    | Type       | Required | Validation                             |
-| ---------------------------| ---------- | -------- | -------------------------------------------|
-| List of exclusion patterns   | Text (glob) | No       | Valid glob syntax, editable in Settings        |
+| Field                      | Type        | Required | Validation                              |
+| -------------------------- | ----------- | -------- | --------------------------------------- |
+| List of exclusion patterns | Text (glob) | No       | Valid glob syntax, editable in Settings |
 
 ---
 
@@ -45,10 +45,10 @@ The user must be able to exclude specific folders or file patterns from the sync
 
 ## Outputs
 
-| Scenario         | Result                                                       |
-| --------------------| -------------------------------------------------------------------|
-| Pattern applied        | Matching files are skipped on the next sync cycle                    |
-| Invalid pattern         | Settings shows a syntax error before saving                          |
+| Scenario        | Result                                            |
+| --------------- | ------------------------------------------------- |
+| Pattern applied | Matching files are skipped on the next sync cycle |
+| Invalid pattern | Settings shows a syntax error before saving       |
 
 ---
 

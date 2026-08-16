@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                                       |
-| ------------ | ----------------------------------------------- |
-| **ID**       | RF-004                                            |
-| **Name**     | Binary/attachment conflict resolution               |
-| **Module**   | Sync Engine / Conflicts                              |
-| **Priority** | High                                                    |
-| **Status**   | Planned                                                  |
-| **Date**     | August 2026                                                |
+| Field        | Value                                 |
+| ------------ | ------------------------------------- |
+| **ID**       | RF-004                                |
+| **Name**     | Binary/attachment conflict resolution |
+| **Module**   | Sync Engine / Conflicts               |
+| **Priority** | High                                  |
+| **Status**   | Planned                               |
+| **Date**     | August 2026                           |
 
 ---
 
@@ -29,10 +29,10 @@ When a binary or attachment file (image, PDF, etc.) changed on both sides since 
 
 ## Inputs
 
-| Field                     | Type | Required | Notes |
-| ---------------------------- | ---- | -------- | ----- |
-| Local version of the file       | Data | Yes      | —     |
-| Remote version of the file      | Data | Yes      | —     |
+| Field                      | Type | Required | Notes |
+| -------------------------- | ---- | -------- | ----- |
+| Local version of the file  | Data | Yes      | —     |
+| Remote version of the file | Data | Yes      | —     |
 
 ---
 
@@ -48,9 +48,9 @@ When a binary or attachment file (image, PDF, etc.) changed on both sides since 
 
 ## Outputs
 
-| Scenario         | Result                                                                |
-| -------------------- | --------------------------------------------------------------------------- |
-| Binary conflict        | Two files visible in the vault, user notified, neither one is lost           |
+| Scenario        | Result                                                             |
+| --------------- | ------------------------------------------------------------------ |
+| Binary conflict | Two files visible in the vault, user notified, neither one is lost |
 
 ---
 

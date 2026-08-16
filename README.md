@@ -49,16 +49,16 @@ Detalle completo: [`docs/es/requisitos/restricciones.md`](docs/es/requisitos/res
 
 ### Documentación
 
-| Documento | Ruta |
-| --- | --- |
-| Roadmap | [`ROADMAP.md`](ROADMAP.md) |
-| Requisitos funcionales (RF) | [`docs/es/requisitos/RFs/`](docs/es/requisitos/RFs/) |
-| Requisitos no funcionales (RNF) | [`docs/es/requisitos/RNFs/`](docs/es/requisitos/RNFs/) |
-| Historias de usuario (HU) | [`docs/es/requisitos/HUs/`](docs/es/requisitos/HUs/) |
-| Restricciones | [`docs/es/requisitos/restricciones.md`](docs/es/requisitos/restricciones.md) |
-| Referencia técnica | [`docs/es/referencia-tecnica/`](docs/es/referencia-tecnica/) |
-| Conceptos (OWASP, patrones) | [`docs/es/conceptos/`](docs/es/conceptos/) |
-| Instrucciones para agentes | [`CLAUDE.md`](CLAUDE.md) |
+| Documento                       | Ruta                                                                         |
+| ------------------------------- | ---------------------------------------------------------------------------- |
+| Roadmap                         | [`ROADMAP.md`](ROADMAP.md)                                                   |
+| Requisitos funcionales (RF)     | [`docs/es/requisitos/RFs/`](docs/es/requisitos/RFs/)                         |
+| Requisitos no funcionales (RNF) | [`docs/es/requisitos/RNFs/`](docs/es/requisitos/RNFs/)                       |
+| Historias de usuario (HU)       | [`docs/es/requisitos/HUs/`](docs/es/requisitos/HUs/)                         |
+| Restricciones                   | [`docs/es/requisitos/restricciones.md`](docs/es/requisitos/restricciones.md) |
+| Referencia técnica              | [`docs/es/referencia-tecnica/`](docs/es/referencia-tecnica/)                 |
+| Conceptos (OWASP, patrones)     | [`docs/es/conceptos/`](docs/es/conceptos/)                                   |
+| Instrucciones para agentes      | [`CLAUDE.md`](CLAUDE.md)                                                     |
 
 ### Contribuir
 
@@ -105,16 +105,16 @@ Full detail: [`docs/en/requisitos/restricciones.md`](docs/en/requisitos/restricc
 
 ### Documentation
 
-| Document | Path |
-| --- | --- |
-| Roadmap | [`ROADMAP.md`](ROADMAP.md) |
-| Functional requirements (RF) | [`docs/en/requisitos/RFs/`](docs/en/requisitos/RFs/) |
-| Non-functional requirements (RNF) | [`docs/en/requisitos/RNFs/`](docs/en/requisitos/RNFs/) |
-| User stories (HU) | [`docs/en/requisitos/HUs/`](docs/en/requisitos/HUs/) |
-| Constraints | [`docs/en/requisitos/restricciones.md`](docs/en/requisitos/restricciones.md) |
-| Technical reference | [`docs/en/referencia-tecnica/`](docs/en/referencia-tecnica/) |
-| Concepts (OWASP, patterns) | [`docs/en/conceptos/`](docs/en/conceptos/) |
-| Agent instructions | [`CLAUDE.md`](CLAUDE.md) |
+| Document                          | Path                                                                         |
+| --------------------------------- | ---------------------------------------------------------------------------- |
+| Roadmap                           | [`ROADMAP.md`](ROADMAP.md)                                                   |
+| Functional requirements (RF)      | [`docs/en/requisitos/RFs/`](docs/en/requisitos/RFs/)                         |
+| Non-functional requirements (RNF) | [`docs/en/requisitos/RNFs/`](docs/en/requisitos/RNFs/)                       |
+| User stories (HU)                 | [`docs/en/requisitos/HUs/`](docs/en/requisitos/HUs/)                         |
+| Constraints                       | [`docs/en/requisitos/restricciones.md`](docs/en/requisitos/restricciones.md) |
+| Technical reference               | [`docs/en/referencia-tecnica/`](docs/en/referencia-tecnica/)                 |
+| Concepts (OWASP, patterns)        | [`docs/en/conceptos/`](docs/en/conceptos/)                                   |
+| Agent instructions                | [`CLAUDE.md`](CLAUDE.md)                                                     |
 
 ### Contributing
 

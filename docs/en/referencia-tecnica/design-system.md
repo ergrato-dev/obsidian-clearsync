@@ -12,10 +12,10 @@
 
 The visual design constraints (`docs/en/requisitos/restricciones.md`, section 3) split into two distinct scopes:
 
-| Scope                     | Where it applies                                        | How it applies                                                         |
-| ------------------------------| ---------------------------------------------------------- | ---------------------------------------------------------------------------|
-| **Brand identity**              | `assets/banner.svg`, plugin icon, README screenshots          | Fixed flat dark theme, violet accent `#7c3aed`, no gradients (RD-001, RD-002) |
-| **Settings UI inside Obsidian**  | The plugin's configuration panel                               | Respects the user's active theme (light or dark) via Obsidian's CSS variables — **never forces dark mode** |
+| Scope                           | Where it applies                                     | How it applies                                                                                             |
+| ------------------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Brand identity**              | `assets/banner.svg`, plugin icon, README screenshots | Fixed flat dark theme, violet accent `#7c3aed`, no gradients (RD-001, RD-002)                              |
+| **Settings UI inside Obsidian** | The plugin's configuration panel                     | Respects the user's active theme (light or dark) via Obsidian's CSS variables — **never forces dark mode** |
 
 A plugin that ignores the host theme and forces its own dark theme inside the Settings panel breaks Obsidian's visual coherence and is a poor community-plugin practice.
 

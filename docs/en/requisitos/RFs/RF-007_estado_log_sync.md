@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                                    |
-| ------------ | ---------------------------------------------- |
-| **ID**       | RF-007                                          |
-| **Name**     | Sync status and log visible in the UI             |
-| **Module**   | UI / Status                                        |
-| **Priority** | High                                                 |
-| **Status**   | Planned                                               |
-| **Date**     | August 2026                                             |
+| Field        | Value                                 |
+| ------------ | ------------------------------------- |
+| **ID**       | RF-007                                |
+| **Name**     | Sync status and log visible in the UI |
+| **Module**   | UI / Status                           |
+| **Priority** | High                                  |
+| **Status**   | Planned                               |
+| **Date**     | August 2026                           |
 
 ---
 
@@ -44,11 +44,11 @@ None — this is a read-only view over the Sync Engine's internal state.
 
 ## Outputs
 
-| Scenario             | Result                                                             |
-| ------------------------| -------------------------------------------------------------------------|
-| Successful sync           | Icon shows idle state, entry logged                                        |
-| Network/API error          | Icon shows error state, notification shown, error detail logged             |
-| Unresolved conflict          | Icon shows attention state, persistent notification until resolved            |
+| Scenario            | Result                                                             |
+| ------------------- | ------------------------------------------------------------------ |
+| Successful sync     | Icon shows idle state, entry logged                                |
+| Network/API error   | Icon shows error state, notification shown, error detail logged    |
+| Unresolved conflict | Icon shows attention state, persistent notification until resolved |
 
 ---
 

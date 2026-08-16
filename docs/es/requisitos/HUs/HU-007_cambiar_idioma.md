@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo            | Valor                                |
-| ----------------- | ---------------------------------------- |
-| **ID**            | HU-007                                    |
-| **Título**        | Cambiar idioma de la interfaz               |
-| **Módulo**        | UI / i18n                                     |
-| **Prioridad**     | Media                                            |
-| **Estado**        | Planificada                                        |
-| **RF asociados**  | RF-011                                                |
+| Campo            | Valor                         |
+| ---------------- | ----------------------------- |
+| **ID**           | HU-007                        |
+| **Título**       | Cambiar idioma de la interfaz |
+| **Módulo**       | UI / i18n                     |
+| **Prioridad**    | Media                         |
+| **Estado**       | Planificada                   |
+| **RF asociados** | RF-011                        |
 
 ---
 
@@ -32,21 +32,25 @@
 ## Criterios de aceptación
 
 ### CA-007.1 — Detección automática
+
 - **Dado que** Obsidian está configurado en español,
 - **cuando** abro Settings > ClearSync,
 - **entonces** toda la interfaz del plugin aparece en español.
 
 ### CA-007.2 — Override manual
+
 - **Dado que** quiero forzar un idioma distinto al de Obsidian,
 - **cuando** cambio el selector de idioma en Settings,
 - **entonces** la interfaz del plugin cambia inmediatamente sin reiniciar Obsidian.
 
 ### CA-007.3 — Fallback a inglés
+
 - **Dado que** Obsidian está configurado en un idioma no soportado (ej. francés),
 - **cuando** abro el plugin,
 - **entonces** la interfaz se muestra en inglés por defecto.
 
 ### CA-007.4 — Sin claves crudas visibles
+
 - **Dado que** falta una traducción para un string específico,
 - **cuando** ese texto se muestra,
 - **entonces** veo el texto en inglés como fallback, nunca una clave técnica sin traducir.

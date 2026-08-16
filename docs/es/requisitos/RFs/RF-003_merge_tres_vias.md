@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                                               |
-| ------------- | ------------------------------------------------------ |
-| **ID**        | RF-003                                                  |
-| **Nombre**    | Merge automático de tres vías para archivos de texto    |
-| **Módulo**    | Sync Engine / Merge                                     |
-| **Prioridad** | Alta                                                     |
-| **Estado**    | Planificado                                              |
-| **Fecha**     | Agosto 2026                                              |
+| Campo         | Valor                                                |
+| ------------- | ---------------------------------------------------- |
+| **ID**        | RF-003                                               |
+| **Nombre**    | Merge automático de tres vías para archivos de texto |
+| **Módulo**    | Sync Engine / Merge                                  |
+| **Prioridad** | Alta                                                 |
+| **Estado**    | Planificado                                          |
+| **Fecha**     | Agosto 2026                                          |
 
 ---
 
@@ -29,11 +29,11 @@ Cuando un archivo de texto (`.md`) cambió tanto local como remotamente desde la
 
 ## Entradas
 
-| Campo             | Tipo  | Obligatorio | Notas                                     |
-| ------------------- | ----- | ----------- | -------------------------------------------- |
-| Versión base         | Datos | Sí          | Último contenido sincronizado en común         |
-| Versión local actual | Datos | Sí          | —                                              |
-| Versión remota actual | Datos | Sí          | —                                              |
+| Campo                 | Tipo  | Obligatorio | Notas                                  |
+| --------------------- | ----- | ----------- | -------------------------------------- |
+| Versión base          | Datos | Sí          | Último contenido sincronizado en común |
+| Versión local actual  | Datos | Sí          | —                                      |
+| Versión remota actual | Datos | Sí          | —                                      |
 
 ---
 
@@ -49,10 +49,10 @@ Cuando un archivo de texto (`.md`) cambió tanto local como remotamente desde la
 
 ## Salidas
 
-| Escenario                     | Resultado                                                                 |
-| -------------------------------- | ----------------------------------------------------------------------------- |
-| Merge limpio (sin overlap)        | Archivo actualizado y sincronizado; notificación informativa no bloqueante   |
-| Conflicto real (con overlap)      | Notificación persistente; el archivo no se sobrescribe hasta resolución manual |
+| Escenario                    | Resultado                                                                      |
+| ---------------------------- | ------------------------------------------------------------------------------ |
+| Merge limpio (sin overlap)   | Archivo actualizado y sincronizado; notificación informativa no bloqueante     |
+| Conflicto real (con overlap) | Notificación persistente; el archivo no se sobrescribe hasta resolución manual |
 
 ---
 

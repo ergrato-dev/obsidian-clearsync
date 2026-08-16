@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                    |
-| ------------- | -------------------------- |
-| **ID**        | RF-001                     |
-| **Nombre**    | Autenticación con Dropbox  |
-| **Módulo**    | Autenticación               |
-| **Prioridad** | Alta                        |
-| **Estado**    | Planificado                 |
-| **Fecha**     | Agosto 2026                 |
+| Campo         | Valor                     |
+| ------------- | ------------------------- |
+| **ID**        | RF-001                    |
+| **Nombre**    | Autenticación con Dropbox |
+| **Módulo**    | Autenticación             |
+| **Prioridad** | Alta                      |
+| **Estado**    | Planificado               |
+| **Fecha**     | Agosto 2026               |
 
 ---
 
@@ -29,10 +29,10 @@ El plugin debe permitir al usuario autorizar acceso a su cuenta de Dropbox media
 
 ## Entradas
 
-| Campo                     | Tipo    | Obligatorio | Notas                                             |
-| -------------------------- | ------- | ----------- | -------------------------------------------------- |
-| Botón "Conectar Dropbox"   | Acción  | Sí          | Dispara el flujo OAuth2 desde Settings              |
-| `code_verifier`/`code_challenge` | Generado internamente | — | PKCE, nunca visible ni configurable por el usuario |
+| Campo                            | Tipo                  | Obligatorio | Notas                                              |
+| -------------------------------- | --------------------- | ----------- | -------------------------------------------------- |
+| Botón "Conectar Dropbox"         | Acción                | Sí          | Dispara el flujo OAuth2 desde Settings             |
+| `code_verifier`/`code_challenge` | Generado internamente | —           | PKCE, nunca visible ni configurable por el usuario |
 
 ---
 
@@ -51,11 +51,11 @@ El plugin debe permitir al usuario autorizar acceso a su cuenta de Dropbox media
 
 ## Salidas
 
-| Escenario                                | Resultado                                                                    |
-| ------------------------------------------ | ------------------------------------------------------------------------------ |
-| Conexión exitosa                           | Settings muestra "Conectado como {email}" y habilita el resto de la configuración |
-| Usuario cancela/rechaza la autorización    | Settings permanece en estado "No conectado", sin error bloqueante             |
-| Token expirado y renovación falla          | Settings muestra "Sesión expirada, reconectar" y pausa el sync                |
+| Escenario                               | Resultado                                                                         |
+| --------------------------------------- | --------------------------------------------------------------------------------- |
+| Conexión exitosa                        | Settings muestra "Conectado como {email}" y habilita el resto de la configuración |
+| Usuario cancela/rechaza la autorización | Settings permanece en estado "No conectado", sin error bloqueante                 |
+| Token expirado y renovación falla       | Settings muestra "Sesión expirada, reconectar" y pausa el sync                    |
 
 ---
 

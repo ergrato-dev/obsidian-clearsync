@@ -1,0 +1,10 @@
+{
+	"id": "clearsync",
+	"name": "ClearSync",
+	"version": "0.1.0",
+	"minAppVersion": "1.5.0",
+	"description": "End-to-end encrypted, conflict-aware vault sync for Obsidian.",
+	"author": "ClearSync Contributors",
+	"authorUrl": "https://github.com/ergrato-dev/obsidian-clearsync",
+	"isDesktopOnly": true
+}

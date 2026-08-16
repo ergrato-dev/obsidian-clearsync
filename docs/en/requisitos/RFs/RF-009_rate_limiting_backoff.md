@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                                             |
-| ------------ | ------------------------------------------------------ |
-| **ID**       | RF-009                                                  |
-| **Name**     | Dropbox API rate-limiting and backoff handling            |
-| **Module**   | Sync Engine / Resilience                                     |
-| **Priority** | Medium                                                          |
-| **Status**   | Planned                                                            |
-| **Date**     | August 2026                                                          |
+| Field        | Value                                          |
+| ------------ | ---------------------------------------------- |
+| **ID**       | RF-009                                         |
+| **Name**     | Dropbox API rate-limiting and backoff handling |
+| **Module**   | Sync Engine / Resilience                       |
+| **Priority** | Medium                                         |
+| **Status**   | Planned                                        |
+| **Date**     | August 2026                                    |
 
 ---
 
@@ -45,10 +45,10 @@ Dropbox API HTTP responses during the sync cycle.
 
 ## Outputs
 
-| Scenario                | Result                                                                    |
-| ---------------------------| ---------------------------------------------------------------------------|
-| Transient rate-limit          | Sync still completes, with delay, no user intervention needed                 |
-| Persistent API failure          | Visible error in log/status; that file's sync is paused until the next cycle    |
+| Scenario               | Result                                                                       |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| Transient rate-limit   | Sync still completes, with delay, no user intervention needed                |
+| Persistent API failure | Visible error in log/status; that file's sync is paused until the next cycle |
 
 ---
 

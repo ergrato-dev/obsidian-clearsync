@@ -11,13 +11,13 @@
 ## Identificación
 
 | Campo         | Valor                                        |
-| ------------- | ----------------------------------------------- |
-| **ID**        | RF-007                                           |
-| **Nombre**    | Estado y log de sincronización visible en UI      |
-| **Módulo**    | UI / Estado                                       |
-| **Prioridad** | Alta                                               |
-| **Estado**    | Planificado                                         |
-| **Fecha**     | Agosto 2026                                         |
+| ------------- | -------------------------------------------- |
+| **ID**        | RF-007                                       |
+| **Nombre**    | Estado y log de sincronización visible en UI |
+| **Módulo**    | UI / Estado                                  |
+| **Prioridad** | Alta                                         |
+| **Estado**    | Planificado                                  |
+| **Fecha**     | Agosto 2026                                  |
 
 ---
 
@@ -44,11 +44,11 @@ Ninguna — es una vista de solo lectura sobre el estado interno del Sync Engine
 
 ## Salidas
 
-| Escenario                | Resultado                                                                |
-| --------------------------- | ------------------------------------------------------------------------- |
-| Sync exitoso                | Ícono en estado idle, entrada en el log                                    |
-| Error de red/API            | Ícono en estado error, notificación, entrada en el log con detalle del error |
-| Conflicto sin resolver       | Ícono en estado de atención, notificación persistente hasta resolución       |
+| Escenario              | Resultado                                                                    |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| Sync exitoso           | Ícono en estado idle, entrada en el log                                      |
+| Error de red/API       | Ícono en estado error, notificación, entrada en el log con detalle del error |
+| Conflicto sin resolver | Ícono en estado de atención, notificación persistente hasta resolución       |
 
 ---
 

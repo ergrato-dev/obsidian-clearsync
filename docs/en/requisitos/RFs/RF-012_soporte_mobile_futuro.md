@@ -11,13 +11,13 @@
 ## Identification
 
 | Field        | Value                          |
-| ------------ | ---------------------------------- |
-| **ID**       | RF-012                             |
-| **Name**     | Mobile support (future)              |
-| **Module**   | Mobile (future)                        |
-| **Priority** | Low                                       |
-| **Status**   | Future — not implemented in v1               |
-| **Date**     | August 2026                                    |
+| ------------ | ------------------------------ |
+| **ID**       | RF-012                         |
+| **Name**     | Mobile support (future)        |
+| **Module**   | Mobile (future)                |
+| **Priority** | Low                            |
+| **Status**   | Future — not implemented in v1 |
+| **Date**     | August 2026                    |
 
 ---
 

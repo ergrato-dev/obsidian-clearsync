@@ -29,15 +29,15 @@ graph TD
 
 ## Descripción de componentes
 
-| Componente        | Responsabilidad                                                                 | RF/RNF relacionados |
-| -------------------- | ----------------------------------------------------------------------------------- | ---------------------- |
-| **Sync Engine**       | Orquesta el ciclo de sync: detección de cambios, scheduling, coordina el resto de módulos | RF-002, RNF-002       |
-| **Hash Cache local**  | Guarda el último hash sincronizado en común por archivo (base/local/remoto)          | RF-002                 |
-| **Crypto Layer**      | Cifra/descifra contenido con AES-256-GCM, deriva clave con PBKDF2/scrypt              | RF-005, RT-005         |
-| **SyncProvider**      | Interfaz que abstrae el proveedor de nube; `DropboxProvider` es la implementación del MVP | RT-004, RNF-004.4      |
-| **Conflict Resolver**  | Three-way merge para texto (RF-003), conflicted-copy para binarios (RF-004)           | RF-003, RF-004          |
-| **Sync Log**           | Historial local de operaciones (subido/descargado/mergeado/conflicto)                 | RF-007                  |
-| **Settings UI**        | Configuración (cuenta, cifrado, exclusiones, idioma) y estado visible                 | RF-006, RF-007, RF-008, RF-011 |
+| Componente            | Responsabilidad                                                                           | RF/RNF relacionados            |
+| --------------------- | ----------------------------------------------------------------------------------------- | ------------------------------ |
+| **Sync Engine**       | Orquesta el ciclo de sync: detección de cambios, scheduling, coordina el resto de módulos | RF-002, RNF-002                |
+| **Hash Cache local**  | Guarda el último hash sincronizado en común por archivo (base/local/remoto)               | RF-002                         |
+| **Crypto Layer**      | Cifra/descifra contenido con AES-256-GCM, deriva clave con PBKDF2/scrypt                  | RF-005, RT-005                 |
+| **SyncProvider**      | Interfaz que abstrae el proveedor de nube; `DropboxProvider` es la implementación del MVP | RT-004, RNF-004.4              |
+| **Conflict Resolver** | Three-way merge para texto (RF-003), conflicted-copy para binarios (RF-004)               | RF-003, RF-004                 |
+| **Sync Log**          | Historial local de operaciones (subido/descargado/mergeado/conflicto)                     | RF-007                         |
+| **Settings UI**       | Configuración (cuenta, cifrado, exclusiones, idioma) y estado visible                     | RF-006, RF-007, RF-008, RF-011 |
 
 ## Principio de diseño central
 

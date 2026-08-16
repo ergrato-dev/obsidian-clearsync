@@ -12,10 +12,10 @@
 
 Las restricciones de diseño visual (`docs/es/requisitos/restricciones.md`, sección 3) se dividen en dos alcances distintos:
 
-| Alcance                        | Dónde aplica                                         | Cómo aplica                                                     |
-| --------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------- |
-| **Identidad de marca**             | `assets/banner.svg`, ícono del plugin, capturas del README | Tema oscuro plano fijo, acento violeta `#7c3aed`, sin degradados (RD-001, RD-002) |
-| **Settings UI dentro de Obsidian**  | Panel de configuración del plugin                          | Respeta el tema activo del usuario (claro u oscuro) vía variables CSS de Obsidian — **nunca fuerza modo oscuro** |
+| Alcance                            | Dónde aplica                                               | Cómo aplica                                                                                                      |
+| ---------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **Identidad de marca**             | `assets/banner.svg`, ícono del plugin, capturas del README | Tema oscuro plano fijo, acento violeta `#7c3aed`, sin degradados (RD-001, RD-002)                                |
+| **Settings UI dentro de Obsidian** | Panel de configuración del plugin                          | Respeta el tema activo del usuario (claro u oscuro) vía variables CSS de Obsidian — **nunca fuerza modo oscuro** |
 
 Un plugin que ignora el tema del host y fuerza su propio tema oscuro dentro del panel de Settings rompe la coherencia visual de Obsidian y es una mala práctica de la comunidad de plugins.
 

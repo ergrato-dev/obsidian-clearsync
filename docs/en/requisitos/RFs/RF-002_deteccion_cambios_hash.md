@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                          |
-| ------------ | --------------------------------- |
-| **ID**       | RF-002                            |
-| **Name**     | Content-hash change detection      |
-| **Module**   | Sync Engine                        |
-| **Priority** | High                                 |
-| **Status**   | Planned                               |
-| **Date**     | August 2026                            |
+| Field        | Value                         |
+| ------------ | ----------------------------- |
+| **ID**       | RF-002                        |
+| **Name**     | Content-hash change detection |
+| **Module**   | Sync Engine                   |
+| **Priority** | High                          |
+| **Status**   | Planned                       |
+| **Date**     | August 2026                   |
 
 ---
 
@@ -29,10 +29,10 @@ The plugin must detect which vault files changed since the last sync by computin
 
 ## Inputs
 
-| Field                      | Type  | Required | Notes                                              |
-| ----------------------------- | ----- | -------- | ------------------------------------------------------ |
-| Vault files                    | Data  | Yes      | Via Obsidian's Vault API, within RF-008's scope           |
-| Last known hash state           | Data  | Yes      | Persisted locally after the last successful sync          |
+| Field                 | Type | Required | Notes                                            |
+| --------------------- | ---- | -------- | ------------------------------------------------ |
+| Vault files           | Data | Yes      | Via Obsidian's Vault API, within RF-008's scope  |
+| Last known hash state | Data | Yes      | Persisted locally after the last successful sync |
 
 ---
 
@@ -50,11 +50,11 @@ The plugin must detect which vault files changed since the last sync by computin
 
 ## Outputs
 
-| Scenario                 | Result                                       |
-| --------------------------- | ------------------------------------------------ |
-| No changes                    | Sync cycle finishes with no transfers               |
-| One-directional changes       | Synced without user intervention                     |
-| Changes on both sides         | Triggers the conflict flow (RF-003/RF-004)           |
+| Scenario                | Result                                     |
+| ----------------------- | ------------------------------------------ |
+| No changes              | Sync cycle finishes with no transfers      |
+| One-directional changes | Synced without user intervention           |
+| Changes on both sides   | Triggers the conflict flow (RF-003/RF-004) |
 
 ---
 

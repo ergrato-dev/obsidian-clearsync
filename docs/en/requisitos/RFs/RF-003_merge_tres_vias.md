@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                                          |
-| ------------ | ------------------------------------------------- |
-| **ID**       | RF-003                                             |
-| **Name**     | Automatic three-way merge for text files            |
-| **Module**   | Sync Engine / Merge                                  |
-| **Priority** | High                                                   |
-| **Status**   | Planned                                                 |
-| **Date**     | August 2026                                              |
+| Field        | Value                                    |
+| ------------ | ---------------------------------------- |
+| **ID**       | RF-003                                   |
+| **Name**     | Automatic three-way merge for text files |
+| **Module**   | Sync Engine / Merge                      |
+| **Priority** | High                                     |
+| **Status**   | Planned                                  |
+| **Date**     | August 2026                              |
 
 ---
 
@@ -29,11 +29,11 @@ When a text file (`.md`) changed both locally and remotely since the last common
 
 ## Inputs
 
-| Field              | Type | Required | Notes                                |
-| --------------------- | ---- | -------- | ------------------------------------------ |
-| Base version             | Data | Yes      | Last content synced in common                 |
-| Current local version    | Data | Yes      | —                                              |
-| Current remote version   | Data | Yes      | —                                              |
+| Field                  | Type | Required | Notes                         |
+| ---------------------- | ---- | -------- | ----------------------------- |
+| Base version           | Data | Yes      | Last content synced in common |
+| Current local version  | Data | Yes      | —                             |
+| Current remote version | Data | Yes      | —                             |
 
 ---
 
@@ -49,10 +49,10 @@ When a text file (`.md`) changed both locally and remotely since the last common
 
 ## Outputs
 
-| Scenario                       | Result                                                                     |
-| ---------------------------------- | -------------------------------------------------------------------------------- |
-| Clean merge (no overlap)              | File updated and synced; non-blocking informational notification                  |
-| Real conflict (overlap)               | Persistent notification; the file is not overwritten until manually resolved      |
+| Scenario                 | Result                                                                       |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| Clean merge (no overlap) | File updated and synced; non-blocking informational notification             |
+| Real conflict (overlap)  | Persistent notification; the file is not overwritten until manually resolved |
 
 ---
 

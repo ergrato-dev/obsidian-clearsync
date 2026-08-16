@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                             |
-| ------------- | -------------------------------------- |
-| **ID**        | RF-012                                 |
-| **Nombre**    | Soporte mobile (futuro)                 |
-| **Módulo**    | Mobile (futuro)                          |
-| **Prioridad** | Baja                                       |
-| **Estado**    | Futuro — no implementado en v1               |
-| **Fecha**     | Agosto 2026                                   |
+| Campo         | Valor                          |
+| ------------- | ------------------------------ |
+| **ID**        | RF-012                         |
+| **Nombre**    | Soporte mobile (futuro)        |
+| **Módulo**    | Mobile (futuro)                |
+| **Prioridad** | Baja                           |
+| **Estado**    | Futuro — no implementado en v1 |
+| **Fecha**     | Agosto 2026                    |
 
 ---
 

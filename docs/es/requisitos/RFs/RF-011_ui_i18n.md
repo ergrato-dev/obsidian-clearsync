@@ -11,13 +11,13 @@
 ## Identificación
 
 | Campo         | Valor                                        |
-| ------------- | ----------------------------------------------- |
-| **ID**        | RF-011                                            |
-| **Nombre**    | Interfaz de usuario en español/inglés (i18n)       |
-| **Módulo**    | UI / i18n                                          |
-| **Prioridad** | Media                                                |
-| **Estado**    | Planificado                                            |
-| **Fecha**     | Agosto 2026                                            |
+| ------------- | -------------------------------------------- |
+| **ID**        | RF-011                                       |
+| **Nombre**    | Interfaz de usuario en español/inglés (i18n) |
+| **Módulo**    | UI / i18n                                    |
+| **Prioridad** | Media                                        |
+| **Estado**    | Planificado                                  |
+| **Fecha**     | Agosto 2026                                  |
 
 ---
 
@@ -29,9 +29,9 @@ Toda la interfaz visible del plugin (Settings, notificaciones, mensajes de estad
 
 ## Entradas
 
-| Campo                       | Tipo     | Obligatorio | Notas                                       |
-| ------------------------------ | -------- | ----------- | ---------------------------------------------- |
-| Selector de idioma en Settings   | Selección | No          | Opciones: Automático / Español / English         |
+| Campo                          | Tipo      | Obligatorio | Notas                                    |
+| ------------------------------ | --------- | ----------- | ---------------------------------------- |
+| Selector de idioma en Settings | Selección | No          | Opciones: Automático / Español / English |
 
 ---
 
@@ -45,10 +45,10 @@ Toda la interfaz visible del plugin (Settings, notificaciones, mensajes de estad
 
 ## Salidas
 
-| Escenario                              | Resultado                                                       |
-| ------------------------------------------ | ---------------------------------------------------------------------- |
-| Idioma de Obsidian en español                | UI del plugin en español automáticamente                                |
-| Override manual a inglés                     | UI del plugin en inglés independientemente del idioma de Obsidian        |
+| Escenario                     | Resultado                                                         |
+| ----------------------------- | ----------------------------------------------------------------- |
+| Idioma de Obsidian en español | UI del plugin en español automáticamente                          |
+| Override manual a inglés      | UI del plugin en inglés independientemente del idioma de Obsidian |
 
 ---
 

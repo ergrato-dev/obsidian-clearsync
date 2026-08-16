@@ -12,42 +12,42 @@
 
 ## Plugin lifecycle
 
-| API                                 | Use in ClearSync                                                       |
-| --------------------------------------| ------------------------------------------------------------------------- |
-| `Plugin.onload()`                        | Registers the Settings tab, status bar item, Vault listeners, starts Sync Engine |
-| `Plugin.onunload()`                       | Cleanly stops listeners and any in-progress sync                              |
-| `this.saveData()` / `this.loadData()`       | Persists OAuth tokens (RS-002), hash cache, exclusion configuration              |
+| API                                   | Use in ClearSync                                                                 |
+| ------------------------------------- | -------------------------------------------------------------------------------- |
+| `Plugin.onload()`                     | Registers the Settings tab, status bar item, Vault listeners, starts Sync Engine |
+| `Plugin.onunload()`                   | Cleanly stops listeners and any in-progress sync                                 |
+| `this.saveData()` / `this.loadData()` | Persists OAuth tokens (RS-002), hash cache, exclusion configuration              |
 
 ## Vault
 
-| API                                       | Use in ClearSync                                                     |
-| ---------------------------------------------| ---------------------------------------------------------------------- |
-| `app.vault.getFiles()` / `getAbstractFileByPath()` | Initial vault walk for the first sync (RF-002, RF-006)                    |
-| `app.vault.read()` / `app.vault.cachedRead()`  | Reading content to hash/encrypt                                          |
-| `app.vault.create()` / `modify()` / `delete()` | Applying remote changes locally, creating conflicted copies (RF-004)       |
-| `app.vault.on('create' \| 'modify' \| 'delete' \| 'rename', callback)` | Reactive triggers for the Sync Engine (Observer pattern) |
+| API                                                                    | Use in ClearSync                                                     |
+| ---------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `app.vault.getFiles()` / `getAbstractFileByPath()`                     | Initial vault walk for the first sync (RF-002, RF-006)               |
+| `app.vault.read()` / `app.vault.cachedRead()`                          | Reading content to hash/encrypt                                      |
+| `app.vault.create()` / `modify()` / `delete()`                         | Applying remote changes locally, creating conflicted copies (RF-004) |
+| `app.vault.on('create' \| 'modify' \| 'delete' \| 'rename', callback)` | Reactive triggers for the Sync Engine (Observer pattern)             |
 
 ## UI
 
-| API                            | Use in ClearSync                                        |
-| -----------------------------------| -------------------------------------------------------------|
-| `PluginSettingTab` + `Setting`       | Settings panel: account, encryption, exclusions, language, log (RF-006, RF-008, RF-011) |
-| `Plugin.addStatusBarItem()`           | Idle/syncing/error/conflict status icon (RF-007)                |
-| `Notice`                               | Error/conflict notifications (RF-007)                             |
+| API                            | Use in ClearSync                                                                        |
+| ------------------------------ | --------------------------------------------------------------------------------------- |
+| `PluginSettingTab` + `Setting` | Settings panel: account, encryption, exclusions, language, log (RF-006, RF-008, RF-011) |
+| `Plugin.addStatusBarItem()`    | Idle/syncing/error/conflict status icon (RF-007)                                        |
+| `Notice`                       | Error/conflict notifications (RF-007)                                                   |
 
 ## Network
 
-| API                    | Use in ClearSync                                                                |
-| ---------------------------| --------------------------------------------------------------------------------------|
-| `requestUrl()`                | Calls to the Dropbox API — avoids the CORS restrictions of standard `fetch` inside Obsidian (RF-001, RF-009) |
+| API            | Use in ClearSync                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------------ |
+| `requestUrl()` | Calls to the Dropbox API — avoids the CORS restrictions of standard `fetch` inside Obsidian (RF-001, RF-009) |
 
 ## Manifest and compatibility
 
-| Field (`manifest.json`) | Use                                                                    |
-| ----------------------------| ---------------------------------------------------------------------------|
-| `id`                          | `clearsync`                                                                  |
-| `minAppVersion`                | Minimum supported Obsidian version (RNF-004.3), to be pinned during implementation |
-| `isDesktopOnly`                 | `true` in v1 (RNF-004.1, RF-012 is future work)                                |
+| Field (`manifest.json`) | Use                                                                                |
+| ----------------------- | ---------------------------------------------------------------------------------- |
+| `id`                    | `clearsync`                                                                        |
+| `minAppVersion`         | Minimum supported Obsidian version (RNF-004.3), to be pinned during implementation |
+| `isDesktopOnly`         | `true` in v1 (RNF-004.1, RF-012 is future work)                                    |
 
 ## Explicitly out of scope
 

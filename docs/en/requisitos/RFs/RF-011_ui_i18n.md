@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                                     |
-| ------------ | ---------------------------------------------- |
-| **ID**       | RF-011                                          |
-| **Name**     | Spanish/English user interface (i18n)             |
-| **Module**   | UI / i18n                                           |
-| **Priority** | Medium                                                |
-| **Status**   | Planned                                                  |
-| **Date**     | August 2026                                                |
+| Field        | Value                                 |
+| ------------ | ------------------------------------- |
+| **ID**       | RF-011                                |
+| **Name**     | Spanish/English user interface (i18n) |
+| **Module**   | UI / i18n                             |
+| **Priority** | Medium                                |
+| **Status**   | Planned                               |
+| **Date**     | August 2026                           |
 
 ---
 
@@ -29,9 +29,9 @@ The entire visible plugin interface (Settings, notifications, status messages, l
 
 ## Inputs
 
-| Field                    | Type      | Required | Notes                                    |
-| ---------------------------| --------- | -------- | ---------------------------------------------|
-| Language selector in Settings | Selection | No       | Options: Automatic / Español / English           |
+| Field                         | Type      | Required | Notes                                  |
+| ----------------------------- | --------- | -------- | -------------------------------------- |
+| Language selector in Settings | Selection | No       | Options: Automatic / Español / English |
 
 ---
 
@@ -45,10 +45,10 @@ The entire visible plugin interface (Settings, notifications, status messages, l
 
 ## Outputs
 
-| Scenario                        | Result                                                          |
-| ------------------------------------| -----------------------------------------------------------------------|
-| Obsidian's language set to Spanish     | Plugin UI shows Spanish automatically                                   |
-| Manual override to English              | Plugin UI shows English regardless of Obsidian's language                |
+| Scenario                           | Result                                                    |
+| ---------------------------------- | --------------------------------------------------------- |
+| Obsidian's language set to Spanish | Plugin UI shows Spanish automatically                     |
+| Manual override to English         | Plugin UI shows English regardless of Obsidian's language |
 
 ---
 

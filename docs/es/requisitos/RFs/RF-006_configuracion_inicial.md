@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                                     |
-| ------------- | -------------------------------------------- |
+| Campo         | Valor                                         |
+| ------------- | --------------------------------------------- |
 | **ID**        | RF-006                                        |
-| **Nombre**    | Configuración inicial y vinculación del vault  |
-| **Módulo**    | Configuración                                  |
-| **Prioridad** | Alta                                            |
-| **Estado**    | Planificado                                      |
-| **Fecha**     | Agosto 2026                                      |
+| **Nombre**    | Configuración inicial y vinculación del vault |
+| **Módulo**    | Configuración                                 |
+| **Prioridad** | Alta                                          |
+| **Estado**    | Planificado                                   |
+| **Fecha**     | Agosto 2026                                   |
 
 ---
 
@@ -29,10 +29,10 @@ Flujo guiado para que un usuario nuevo conecte su cuenta de Dropbox, defina su c
 
 ## Entradas
 
-| Campo                        | Tipo    | Obligatorio | Validaciones                                   |
-| ------------------------------ | ------- | ----------- | -------------------------------------------------- |
-| Contraseña de cifrado           | Texto   | Sí          | Definida y confirmada (RF-005)                       |
-| Carpeta remota de Dropbox        | Texto   | Sí          | Crear nueva o seleccionar existente                  |
+| Campo                     | Tipo  | Obligatorio | Validaciones                        |
+| ------------------------- | ----- | ----------- | ----------------------------------- |
+| Contraseña de cifrado     | Texto | Sí          | Definida y confirmada (RF-005)      |
+| Carpeta remota de Dropbox | Texto | Sí          | Crear nueva o seleccionar existente |
 
 ---
 
@@ -49,9 +49,9 @@ Flujo guiado para que un usuario nuevo conecte su cuenta de Dropbox, defina su c
 
 ## Salidas
 
-| Escenario                                          | Resultado                                                    |
-| ------------------------------------------------------ | ------------------------------------------------------------------ |
-| Configuración completa                                  | El plugin queda activo, sync automático habilitado                  |
+| Escenario                                               | Resultado                                                                           |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Configuración completa                                  | El plugin queda activo, sync automático habilitado                                  |
 | Vault remoto existente + contraseña de cifrado distinta | Error de descifrado explícito (RF-005); configuración no se completa hasta resolver |
 
 ---

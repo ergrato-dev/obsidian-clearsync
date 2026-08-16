@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                                             |
-| ------------- | ---------------------------------------------------- |
-| **ID**        | RF-004                                               |
-| **Nombre**    | Resolución de conflictos en binarios/adjuntos         |
-| **Módulo**    | Sync Engine / Conflictos                              |
-| **Prioridad** | Alta                                                   |
-| **Estado**    | Planificado                                            |
-| **Fecha**     | Agosto 2026                                            |
+| Campo         | Valor                                         |
+| ------------- | --------------------------------------------- |
+| **ID**        | RF-004                                        |
+| **Nombre**    | Resolución de conflictos en binarios/adjuntos |
+| **Módulo**    | Sync Engine / Conflictos                      |
+| **Prioridad** | Alta                                          |
+| **Estado**    | Planificado                                   |
+| **Fecha**     | Agosto 2026                                   |
 
 ---
 
@@ -29,10 +29,10 @@ Cuando un archivo binario o adjunto (imagen, PDF, etc.) cambió en ambos lados d
 
 ## Entradas
 
-| Campo                          | Tipo  | Obligatorio | Notas |
-| -------------------------------- | ----- | ----------- | ----- |
-| Versión local del archivo         | Datos | Sí          | —     |
-| Versión remota del archivo        | Datos | Sí          | —     |
+| Campo                      | Tipo  | Obligatorio | Notas |
+| -------------------------- | ----- | ----------- | ----- |
+| Versión local del archivo  | Datos | Sí          | —     |
+| Versión remota del archivo | Datos | Sí          | —     |
 
 ---
 
@@ -48,9 +48,9 @@ Cuando un archivo binario o adjunto (imagen, PDF, etc.) cambió en ambos lados d
 
 ## Salidas
 
-| Escenario           | Resultado                                                             |
-| --------------------- | ------------------------------------------------------------------------ |
-| Conflicto binario      | Dos archivos visibles en el vault, notificación al usuario, ninguno se pierde |
+| Escenario         | Resultado                                                                     |
+| ----------------- | ----------------------------------------------------------------------------- |
+| Conflicto binario | Dos archivos visibles en el vault, notificación al usuario, ninguno se pierde |
 
 ---
 

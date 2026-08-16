@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                                       |
-| ------------- | --------------------------------------------- |
-| **ID**        | RF-002                                        |
-| **Nombre**    | Detección de cambios por hash de contenido    |
-| **Módulo**    | Sync Engine                                   |
-| **Prioridad** | Alta                                           |
-| **Estado**    | Planificado                                    |
-| **Fecha**     | Agosto 2026                                    |
+| Campo         | Valor                                      |
+| ------------- | ------------------------------------------ |
+| **ID**        | RF-002                                     |
+| **Nombre**    | Detección de cambios por hash de contenido |
+| **Módulo**    | Sync Engine                                |
+| **Prioridad** | Alta                                       |
+| **Estado**    | Planificado                                |
+| **Fecha**     | Agosto 2026                                |
 
 ---
 
@@ -29,10 +29,10 @@ El plugin debe detectar qué archivos del vault cambiaron desde la última sincr
 
 ## Entradas
 
-| Campo                         | Tipo   | Obligatorio | Notas                                              |
-| ------------------------------ | ------ | ----------- | ---------------------------------------------------- |
-| Archivos del vault              | Datos  | Sí          | Vía Vault API de Obsidian, dentro del alcance de RF-008 |
-| Último estado de hashes conocido | Datos  | Sí          | Persistido localmente tras el último sync exitoso    |
+| Campo                            | Tipo  | Obligatorio | Notas                                                   |
+| -------------------------------- | ----- | ----------- | ------------------------------------------------------- |
+| Archivos del vault               | Datos | Sí          | Vía Vault API de Obsidian, dentro del alcance de RF-008 |
+| Último estado de hashes conocido | Datos | Sí          | Persistido localmente tras el último sync exitoso       |
 
 ---
 
@@ -50,11 +50,11 @@ El plugin debe detectar qué archivos del vault cambiaron desde la última sincr
 
 ## Salidas
 
-| Escenario                  | Resultado                                          |
-| ---------------------------- | ----------------------------------------------------- |
-| Sin cambios                  | El ciclo de sync termina sin transferencias           |
-| Cambios unidireccionales     | Se sincronizan sin intervención del usuario           |
-| Cambios en ambos lados       | Se dispara el flujo de conflicto (RF-003/RF-004)      |
+| Escenario                | Resultado                                        |
+| ------------------------ | ------------------------------------------------ |
+| Sin cambios              | El ciclo de sync termina sin transferencias      |
+| Cambios unidireccionales | Se sincronizan sin intervención del usuario      |
+| Cambios en ambos lados   | Se dispara el flujo de conflicto (RF-003/RF-004) |
 
 ---
 

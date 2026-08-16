@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                             |
-| ------------- | ------------------------------------ |
-| **ID**        | RF-005                               |
-| **Nombre**    | Cifrado end-to-end del contenido      |
-| **Módulo**    | Seguridad / Cifrado                   |
-| **Prioridad** | Crítica                               |
-| **Estado**    | Planificado                            |
-| **Fecha**     | Agosto 2026                            |
+| Campo         | Valor                            |
+| ------------- | -------------------------------- |
+| **ID**        | RF-005                           |
+| **Nombre**    | Cifrado end-to-end del contenido |
+| **Módulo**    | Seguridad / Cifrado              |
+| **Prioridad** | Crítica                          |
+| **Estado**    | Planificado                      |
+| **Fecha**     | Agosto 2026                      |
 
 ---
 
@@ -29,10 +29,10 @@ Todo contenido del vault se cifra localmente antes de subirse al proveedor de sy
 
 ## Entradas
 
-| Campo                         | Tipo   | Obligatorio | Validaciones                                       |
-| ------------------------------- | ------ | ----------- | ----------------------------------------------------- |
-| Contenido en claro del archivo   | Datos  | Sí          | —                                                       |
-| Contraseña de cifrado del vault  | Texto  | Sí          | Definida por el usuario en RF-006, distinta de la de Dropbox |
+| Campo                           | Tipo  | Obligatorio | Validaciones                                                 |
+| ------------------------------- | ----- | ----------- | ------------------------------------------------------------ |
+| Contenido en claro del archivo  | Datos | Sí          | —                                                            |
+| Contraseña de cifrado del vault | Texto | Sí          | Definida por el usuario en RF-006, distinta de la de Dropbox |
 
 ---
 
@@ -49,9 +49,9 @@ Todo contenido del vault se cifra localmente antes de subirse al proveedor de sy
 
 ## Salidas
 
-| Escenario                                       | Resultado                                                                |
-| -------------------------------------------------- | ----------------------------------------------------------------------------- |
-| Cifrado/descifrado exitoso                          | Sync transparente para el usuario                                             |
+| Escenario                                             | Resultado                                                                               |
+| ----------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Cifrado/descifrado exitoso                            | Sync transparente para el usuario                                                       |
 | Contraseña de cifrado incorrecta en dispositivo nuevo | Error explícito "No se pudo descifrar: verificá tu contraseña de cifrado", sync pausado |
 
 ---

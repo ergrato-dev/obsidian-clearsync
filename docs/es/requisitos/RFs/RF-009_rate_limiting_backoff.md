@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                                                    |
-| ------------- | ----------------------------------------------------------- |
-| **ID**        | RF-009                                                       |
-| **Nombre**    | Manejo de rate-limiting y backoff de la API de Dropbox         |
-| **Módulo**    | Sync Engine / Resiliencia                                     |
-| **Prioridad** | Media                                                           |
-| **Estado**    | Planificado                                                      |
-| **Fecha**     | Agosto 2026                                                      |
+| Campo         | Valor                                                  |
+| ------------- | ------------------------------------------------------ |
+| **ID**        | RF-009                                                 |
+| **Nombre**    | Manejo de rate-limiting y backoff de la API de Dropbox |
+| **Módulo**    | Sync Engine / Resiliencia                              |
+| **Prioridad** | Media                                                  |
+| **Estado**    | Planificado                                            |
+| **Fecha**     | Agosto 2026                                            |
 
 ---
 
@@ -45,10 +45,10 @@ Respuestas HTTP de la API de Dropbox durante el ciclo de sync.
 
 ## Salidas
 
-| Escenario                | Resultado                                                              |
-| --------------------------- | -------------------------------------------------------------------------- |
-| Rate-limit transitorio       | El sync se completa igual, con demora, sin intervención del usuario         |
-| Fallo persistente de API     | Error visible en log/estado; el sync de ese archivo queda pausado hasta el próximo ciclo |
+| Escenario                | Resultado                                                                                |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| Rate-limit transitorio   | El sync se completa igual, con demora, sin intervención del usuario                      |
+| Fallo persistente de API | Error visible en log/estado; el sync de ese archivo queda pausado hasta el próximo ciclo |
 
 ---
 

@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                    |
-| ------------ | -------------------------- |
-| **ID**       | RF-001                     |
-| **Name**     | Dropbox Authentication      |
-| **Module**   | Authentication               |
-| **Priority** | High                          |
-| **Status**   | Planned                        |
-| **Date**     | August 2026                     |
+| Field        | Value                  |
+| ------------ | ---------------------- |
+| **ID**       | RF-001                 |
+| **Name**     | Dropbox Authentication |
+| **Module**   | Authentication         |
+| **Priority** | High                   |
+| **Status**   | Planned                |
+| **Date**     | August 2026            |
 
 ---
 
@@ -29,10 +29,10 @@ The plugin must let the user authorize access to their Dropbox account via **OAu
 
 ## Inputs
 
-| Field                       | Type    | Required | Notes                                          |
-| ----------------------------- | ------- | -------- | -------------------------------------------------- |
-| "Connect Dropbox" button       | Action  | Yes      | Triggers the OAuth2 flow from Settings                |
-| `code_verifier`/`code_challenge` | Internally generated | — | PKCE, never visible or configurable by the user |
+| Field                            | Type                 | Required | Notes                                           |
+| -------------------------------- | -------------------- | -------- | ----------------------------------------------- |
+| "Connect Dropbox" button         | Action               | Yes      | Triggers the OAuth2 flow from Settings          |
+| `code_verifier`/`code_challenge` | Internally generated | —        | PKCE, never visible or configurable by the user |
 
 ---
 
@@ -51,11 +51,11 @@ The plugin must let the user authorize access to their Dropbox account via **OAu
 
 ## Outputs
 
-| Scenario                             | Result                                                                 |
-| --------------------------------------- | --------------------------------------------------------------------------- |
-| Successful connection                    | Settings shows "Connected as {email}" and unlocks the rest of the setup      |
-| User cancels/rejects authorization       | Settings stays "Not connected", no blocking error                            |
-| Token expired and refresh fails          | Settings shows "Session expired, reconnect" and pauses sync                  |
+| Scenario                           | Result                                                                  |
+| ---------------------------------- | ----------------------------------------------------------------------- |
+| Successful connection              | Settings shows "Connected as {email}" and unlocks the rest of the setup |
+| User cancels/rejects authorization | Settings stays "Not connected", no blocking error                       |
+| Token expired and refresh fails    | Settings shows "Session expired, reconnect" and pauses sync             |
 
 ---
 

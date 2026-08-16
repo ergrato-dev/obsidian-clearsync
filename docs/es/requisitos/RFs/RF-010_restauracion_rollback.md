@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                                              |
-| ------------- | ------------------------------------------------------ |
-| **ID**        | RF-010                                                  |
-| **Nombre**    | Restauración/rollback desde versión conflictiva           |
-| **Módulo**    | Conflictos / Recuperación                                 |
-| **Prioridad** | Media                                                       |
-| **Estado**    | Planificado                                                  |
-| **Fecha**     | Agosto 2026                                                  |
+| Campo         | Valor                                           |
+| ------------- | ----------------------------------------------- |
+| **ID**        | RF-010                                          |
+| **Nombre**    | Restauración/rollback desde versión conflictiva |
+| **Módulo**    | Conflictos / Recuperación                       |
+| **Prioridad** | Media                                           |
+| **Estado**    | Planificado                                     |
+| **Fecha**     | Agosto 2026                                     |
 
 ---
 
@@ -29,8 +29,8 @@ Si un merge automático (RF-003) o una resolución manual produjo un resultado n
 
 ## Entradas
 
-| Campo                             | Tipo      | Obligatorio | Notas                                                  |
-| ------------------------------------ | --------- | ----------- | --------------------------------------------------------- |
+| Campo                                  | Tipo      | Obligatorio | Notas                                                                   |
+| -------------------------------------- | --------- | ----------- | ----------------------------------------------------------------------- |
 | Archivo + versión anterior a restaurar | Selección | Sí          | Disponible desde el log de sync (RF-007) o copias conflictivas (RF-004) |
 
 ---
@@ -46,9 +46,9 @@ Si un merge automático (RF-003) o una resolución manual produjo un resultado n
 
 ## Salidas
 
-| Escenario             | Resultado                                                      |
-| ------------------------ | ------------------------------------------------------------------- |
-| Restauración exitosa       | Archivo actualizado localmente, se sincroniza como cambio nuevo      |
+| Escenario            | Resultado                                                       |
+| -------------------- | --------------------------------------------------------------- |
+| Restauración exitosa | Archivo actualizado localmente, se sincroniza como cambio nuevo |
 
 ---
 

@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                                        |
-| ------------ | -------------------------------------------------- |
-| **ID**       | RF-010                                              |
-| **Name**     | Restore/rollback from a conflicted version            |
-| **Module**   | Conflicts / Recovery                                     |
-| **Priority** | Medium                                                       |
-| **Status**   | Planned                                                        |
-| **Date**     | August 2026                                                      |
+| Field        | Value                                      |
+| ------------ | ------------------------------------------ |
+| **ID**       | RF-010                                     |
+| **Name**     | Restore/rollback from a conflicted version |
+| **Module**   | Conflicts / Recovery                       |
+| **Priority** | Medium                                     |
+| **Status**   | Planned                                    |
+| **Date**     | August 2026                                |
 
 ---
 
@@ -29,8 +29,8 @@ If an automatic merge (RF-003) or a manual conflict resolution produced an unwan
 
 ## Inputs
 
-| Field                          | Type      | Required | Notes                                                 |
-| ---------------------------------| --------- | -------- | ------------------------------------------------------------|
+| Field                              | Type      | Required | Notes                                                              |
+| ---------------------------------- | --------- | -------- | ------------------------------------------------------------------ |
 | File + previous version to restore | Selection | Yes      | Available from the sync log (RF-007) or conflicted copies (RF-004) |
 
 ---
@@ -46,9 +46,9 @@ If an automatic merge (RF-003) or a manual conflict resolution produced an unwan
 
 ## Outputs
 
-| Scenario           | Result                                                    |
-| ----------------------| -------------------------------------------------------------- |
-| Successful restore       | File updated locally, syncs as a new change                     |
+| Scenario           | Result                                      |
+| ------------------ | ------------------------------------------- |
+| Successful restore | File updated locally, syncs as a new change |
 
 ---
 

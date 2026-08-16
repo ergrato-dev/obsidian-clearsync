@@ -38,12 +38,12 @@
 2. Obtain `remoteHash` — computed the same way after downloading content/metadata from the provider, or via a hash provided by the API if trustworthy (must be validated against Dropbox API v2's `content_hash`, which uses its own algorithm distinct from SHA-256 — **do not assume direct compatibility**; recompute locally after download if needed).
 3. Compare `localHash`, `remoteHash` against the Hash Cache's `baseHash`:
 
-| localHash == baseHash | remoteHash == baseHash | Result                          |
-| -------------------------| ---------------------------| -------------------------------------|
-| Yes                        | Yes                           | No changes — skipped                    |
-| No                         | Yes                           | Local change — upload                    |
-| Yes                        | No                            | Remote change — download                  |
-| No                         | No                            | Real conflict — see merge/binary flow      |
+| localHash == baseHash | remoteHash == baseHash | Result                                |
+| --------------------- | ---------------------- | ------------------------------------- |
+| Yes                   | Yes                    | No changes — skipped                  |
+| No                    | Yes                    | Local change — upload                 |
+| Yes                   | No                     | Remote change — download              |
+| No                    | No                     | Real conflict — see merge/binary flow |
 
 ## Three-way merge (RF-003)
 

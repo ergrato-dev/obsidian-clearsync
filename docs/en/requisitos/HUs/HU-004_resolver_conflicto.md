@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field         | Value                               |
-| ----------------| ----------------------------------------|
-| **ID**          | HU-004                                    |
-| **Title**       | Resolve a note merge conflict                |
-| **Module**      | Sync Engine / Conflicts                         |
-| **Priority**    | High                                               |
-| **Status**      | Planned                                               |
-| **Related RFs** | RF-003, RF-004                                           |
+| Field           | Value                         |
+| --------------- | ----------------------------- |
+| **ID**          | HU-004                        |
+| **Title**       | Resolve a note merge conflict |
+| **Module**      | Sync Engine / Conflicts       |
+| **Priority**    | High                          |
+| **Status**      | Planned                       |
+| **Related RFs** | RF-003, RF-004                |
 
 ---
 
@@ -32,31 +32,37 @@
 ## Acceptance criteria
 
 ### CA-004.1 — Transparent automatic merge
+
 - **Given** I edited a note on two devices without touching the same lines,
 - **when** sync runs,
 - **then** the note merges automatically without asking me anything.
 
 ### CA-004.2 — Automatic merge notification
+
 - **Given** an automatic merge happened,
 - **when** I check the log,
 - **then** I see it recorded that the note was auto-merged.
 
 ### CA-004.3 — Real conflict alert
+
 - **Given** I edited the same line of a note on two devices,
 - **when** sync runs,
 - **then** I get an unresolved-conflict notification, with both versions available.
 
 ### CA-004.4 — Manual resolution
+
 - **Given** I have a real conflict pending,
 - **when** I open the conflicted note,
 - **then** I can choose which version to keep or manually combine them.
 
 ### CA-004.5 — Binary conflict keeps both copies
+
 - **Given** an attachment (image/PDF) changed on both devices,
 - **when** sync runs,
 - **then** I find both files in my vault, one with a conflicted-copy suffix.
 
 ### CA-004.6 — No silent overwrite
+
 - **Given** any type of real conflict exists,
 - **when** sync runs,
 - **then** no version is ever overwritten without my knowledge.

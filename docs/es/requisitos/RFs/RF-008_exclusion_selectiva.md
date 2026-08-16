@@ -11,13 +11,13 @@
 ## Identificación
 
 | Campo         | Valor                                    |
-| ------------- | -------------------------------------------- |
-| **ID**        | RF-008                                        |
-| **Nombre**    | Exclusión selectiva de archivos/carpetas       |
-| **Módulo**    | Configuración                                  |
-| **Prioridad** | Media                                            |
-| **Estado**    | Planificado                                       |
-| **Fecha**     | Agosto 2026                                        |
+| ------------- | ---------------------------------------- |
+| **ID**        | RF-008                                   |
+| **Nombre**    | Exclusión selectiva de archivos/carpetas |
+| **Módulo**    | Configuración                            |
+| **Prioridad** | Media                                    |
+| **Estado**    | Planificado                              |
+| **Fecha**     | Agosto 2026                              |
 
 ---
 
@@ -29,9 +29,9 @@ El usuario debe poder excluir carpetas o patrones de archivo específicos del pr
 
 ## Entradas
 
-| Campo                        | Tipo   | Obligatorio | Validaciones                     |
-| ------------------------------ | ------ | ----------- | ------------------------------------ |
-| Lista de patrones de exclusión  | Texto (glob) | No    | Sintaxis glob válida, editable en Settings |
+| Campo                          | Tipo         | Obligatorio | Validaciones                               |
+| ------------------------------ | ------------ | ----------- | ------------------------------------------ |
+| Lista de patrones de exclusión | Texto (glob) | No          | Sintaxis glob válida, editable en Settings |
 
 ---
 
@@ -45,10 +45,10 @@ El usuario debe poder excluir carpetas o patrones de archivo específicos del pr
 
 ## Salidas
 
-| Escenario           | Resultado                                                     |
-| --------------------- | ------------------------------------------------------------------ |
-| Patrón aplicado         | Los archivos coincidentes se omiten en el próximo ciclo de sync    |
-| Patrón inválido         | Settings muestra error de sintaxis antes de guardar                |
+| Escenario       | Resultado                                                       |
+| --------------- | --------------------------------------------------------------- |
+| Patrón aplicado | Los archivos coincidentes se omiten en el próximo ciclo de sync |
+| Patrón inválido | Settings muestra error de sintaxis antes de guardar             |
 
 ---
 

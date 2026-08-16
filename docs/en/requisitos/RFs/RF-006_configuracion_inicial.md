@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                              |
-| ------------ | -------------------------------------- |
-| **ID**       | RF-006                                 |
-| **Name**     | Initial setup and vault linking          |
-| **Module**   | Configuration                              |
-| **Priority** | High                                         |
-| **Status**   | Planned                                        |
-| **Date**     | August 2026                                      |
+| Field        | Value                           |
+| ------------ | ------------------------------- |
+| **ID**       | RF-006                          |
+| **Name**     | Initial setup and vault linking |
+| **Module**   | Configuration                   |
+| **Priority** | High                            |
+| **Status**   | Planned                         |
+| **Date**     | August 2026                     |
 
 ---
 
@@ -29,10 +29,10 @@ Guided flow for a new user to connect their Dropbox account, define their encryp
 
 ## Inputs
 
-| Field                    | Type   | Required | Validation                             |
-| ---------------------------| ------ | -------- | ------------------------------------------- |
-| Encryption password           | Text   | Yes      | Set and confirmed (RF-005)                     |
-| Remote Dropbox folder          | Text   | Yes      | Create new or select existing                    |
+| Field                 | Type | Required | Validation                    |
+| --------------------- | ---- | -------- | ----------------------------- |
+| Encryption password   | Text | Yes      | Set and confirmed (RF-005)    |
+| Remote Dropbox folder | Text | Yes      | Create new or select existing |
 
 ---
 
@@ -49,10 +49,10 @@ Guided flow for a new user to connect their Dropbox account, define their encryp
 
 ## Outputs
 
-| Scenario                                             | Result                                                              |
-| --------------------------------------------------------| --------------------------------------------------------------------------|
-| Setup complete                                            | The plugin becomes active, automatic sync enabled                          |
-| Existing remote vault + different encryption password     | Explicit decryption error (RF-005); setup doesn't complete until resolved  |
+| Scenario                                              | Result                                                                    |
+| ----------------------------------------------------- | ------------------------------------------------------------------------- |
+| Setup complete                                        | The plugin becomes active, automatic sync enabled                         |
+| Existing remote vault + different encryption password | Explicit decryption error (RF-005); setup doesn't complete until resolved |
 
 ---
 

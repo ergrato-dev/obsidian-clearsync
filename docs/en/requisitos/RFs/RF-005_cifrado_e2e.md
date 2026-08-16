@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                          |
-| ------------ | ---------------------------------- |
-| **ID**       | RF-005                             |
-| **Name**     | End-to-end content encryption       |
-| **Module**   | Security / Encryption                |
-| **Priority** | Critical                               |
-| **Status**   | Planned                                  |
-| **Date**     | August 2026                                |
+| Field        | Value                         |
+| ------------ | ----------------------------- |
+| **ID**       | RF-005                        |
+| **Name**     | End-to-end content encryption |
+| **Module**   | Security / Encryption         |
+| **Priority** | Critical                      |
+| **Status**   | Planned                       |
+| **Date**     | August 2026                   |
 
 ---
 
@@ -29,10 +29,10 @@ All vault content is encrypted locally before being uploaded to the sync provide
 
 ## Inputs
 
-| Field                         | Type   | Required | Validation                                             |
-| -------------------------------- | ------ | -------- | ------------------------------------------------------------ |
-| Plain-text file content            | Data   | Yes      | —                                                                |
-| Vault encryption password          | Text   | Yes      | Defined by the user in RF-006, distinct from the Dropbox password |
+| Field                     | Type | Required | Validation                                                        |
+| ------------------------- | ---- | -------- | ----------------------------------------------------------------- |
+| Plain-text file content   | Data | Yes      | —                                                                 |
+| Vault encryption password | Text | Yes      | Defined by the user in RF-006, distinct from the Dropbox password |
 
 ---
 
@@ -49,10 +49,10 @@ All vault content is encrypted locally before being uploaded to the sync provide
 
 ## Outputs
 
-| Scenario                                      | Result                                                                        |
-| -------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| Successful encryption/decryption                     | Sync is transparent to the user                                                        |
-| Wrong encryption password on a new device            | Explicit error "Could not decrypt: check your encryption password", sync paused        |
+| Scenario                                  | Result                                                                          |
+| ----------------------------------------- | ------------------------------------------------------------------------------- |
+| Successful encryption/decryption          | Sync is transparent to the user                                                 |
+| Wrong encryption password on a new device | Explicit error "Could not decrypt: check your encryption password", sync paused |
 
 ---
 
