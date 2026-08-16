@@ -43,7 +43,20 @@ Dependencies must be managed exclusively with **pnpm**. `npm` or `yarn` are proh
 
 ---
 
-## 3. Language Constraints
+## 3. Visual Design Constraints
+
+### RD-001 — No gradients
+Gradients are prohibited in any asset or UI element (banner, icons, Settings UI). Backgrounds and colors are always solid and flat.
+
+### RD-002 — Dark theme by default
+The project's visual identity (brand assets, Settings UI) uses a flat dark background as its base, with a single solid accent color (violet `#7c3aed`) — no unjustified multi-color palettes.
+
+### RD-003 — Sans-serif typography only
+Only **sans-serif** typefaces are allowed in any project asset or UI. Serif or ornamental fonts are prohibited; monospace is allowed only in code blocks.
+
+---
+
+## 4. Language Constraints
 
 ### RI-001 — Code in English
 Variables, functions, classes, code file/folder names, internal endpoints, commit messages and branch names: **English**.
@@ -56,7 +69,7 @@ The entire visible plugin interface (Settings, notifications, status messages) m
 
 ---
 
-## 4. Organizational Constraints
+## 5. Organizational Constraints
 
 ### RO-001 — Open source project
 **MIT** license. Must be compatible with the official Obsidian community plugins directory.
@@ -72,7 +85,7 @@ The plugin is a pure client; no proprietary infrastructure is operated. The "ser
 
 ---
 
-## 5. Security Constraints
+## 6. Security Constraints
 
 ### RS-001 — No hardcoded secrets
 OAuth tokens and derived keys are never hardcoded nor logged.

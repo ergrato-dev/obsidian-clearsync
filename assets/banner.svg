@@ -1,0 +1,33 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ClearSync — end-to-end encrypted sync for Obsidian">
+  <title>ClearSync</title>
+
+  <rect x="0" y="0" width="1200" height="300" fill="#0d0f14"/>
+  <rect x="0" y="0" width="8" height="300" fill="#7c3aed"/>
+
+  <!-- vault A -->
+  <rect x="80" y="80" width="140" height="140" rx="28" fill="#7c3aed"/>
+  <line x1="110" y1="125" x2="190" y2="125" stroke="#f4f4f5" stroke-width="10" stroke-linecap="round"/>
+  <line x1="110" y1="150" x2="190" y2="150" stroke="#f4f4f5" stroke-width="10" stroke-linecap="round"/>
+  <line x1="110" y1="175" x2="160" y2="175" stroke="#f4f4f5" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- vault B -->
+  <rect x="380" y="80" width="140" height="140" rx="28" fill="#7c3aed"/>
+  <line x1="410" y1="125" x2="490" y2="125" stroke="#f4f4f5" stroke-width="10" stroke-linecap="round"/>
+  <line x1="410" y1="150" x2="490" y2="150" stroke="#f4f4f5" stroke-width="10" stroke-linecap="round"/>
+  <line x1="410" y1="175" x2="460" y2="175" stroke="#f4f4f5" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- bidirectional sync arrows -->
+  <line x1="240" y1="130" x2="325" y2="130" stroke="#f4f4f5" stroke-width="10" stroke-linecap="round"/>
+  <polygon points="355,130 325,118 325,142" fill="#f4f4f5"/>
+  <line x1="360" y1="170" x2="295" y2="170" stroke="#f4f4f5" stroke-width="10" stroke-linecap="round"/>
+  <polygon points="265,170 295,158 295,182" fill="#f4f4f5"/>
+
+  <!-- encryption badge -->
+  <circle cx="500" cy="200" r="26" fill="#0d0f14" stroke="#7c3aed" stroke-width="6"/>
+  <path d="M493,200 A7,7 0 0 1 507,200" fill="none" stroke="#f4f4f5" stroke-width="4" stroke-linecap="round"/>
+  <rect x="490" y="200" width="20" height="16" rx="3" fill="#f4f4f5"/>
+
+  <!-- wordmark -->
+  <text x="580" y="175" font-family="'DejaVu Sans', Verdana, Arial, Helvetica, sans-serif" font-weight="700" font-size="72" fill="#f4f4f5">ClearSync</text>
+  <text x="582" y="215" font-family="'DejaVu Sans', Verdana, Arial, Helvetica, sans-serif" font-weight="400" font-size="24" fill="#9ca3af">End-to-end encrypted sync for Obsidian</text>
+</svg>

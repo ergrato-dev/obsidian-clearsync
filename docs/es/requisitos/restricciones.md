@@ -43,7 +43,20 @@ Las dependencias deben gestionarse exclusivamente con **pnpm**. Prohibido `npm` 
 
 ---
 
-## 3. Restricciones de Idioma
+## 3. Restricciones de Diseño Visual
+
+### RD-001 — Prohibición de degradados
+Queda prohibido el uso de degradados (`gradient`) en cualquier asset o elemento de interfaz (banner, íconos, Settings UI). Fondos y colores siempre sólidos y planos.
+
+### RD-002 — Tema oscuro por defecto
+La identidad visual del proyecto (assets de marca, Settings UI) usa fondo oscuro plano como base, con un único color de acento sólido (violeta `#7c3aed`) — sin paletas múltiples sin justificar.
+
+### RD-003 — Tipografía sans-serif exclusiva
+Solo se permiten fuentes de la familia **sans-serif** en cualquier asset o UI del proyecto. Prohibidas fuentes serif u ornamentales; monospace solo permitida en bloques de código.
+
+---
+
+## 4. Restricciones de Idioma
 
 ### RI-001 — Código en inglés
 Variables, funciones, clases, nombres de archivo/carpeta de código, endpoints internos, mensajes de commit y nombres de rama: **inglés**.
@@ -56,7 +69,7 @@ Toda la interfaz visible del plugin (Settings, notificaciones, mensajes de estad
 
 ---
 
-## 4. Restricciones Organizacionales
+## 5. Restricciones Organizacionales
 
 ### RO-001 — Proyecto open source
 Licencia **MIT**. Debe ser compatible con el directorio oficial de community plugins de Obsidian.
@@ -72,7 +85,7 @@ El plugin es cliente puro; no se opera infraestructura propia. El "servidor" es 
 
 ---
 
-## 5. Restricciones de Seguridad
+## 6. Restricciones de Seguridad
 
 ### RS-001 — Sin secretos hardcodeados
 Tokens OAuth y claves derivadas nunca se hardcodean ni se registran en logs.
