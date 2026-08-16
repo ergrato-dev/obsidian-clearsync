@@ -64,6 +64,14 @@ Este documento es solo en español (instrucciones internas / bitácora técnica,
 
 ---
 
+## 2026-08-16 — `classifyChange` compara hashes directos antes que histórico
+
+**Decisión:** en `src/sync/changeDetection.ts`, comparar `localHash === remoteHash` primero; solo si difieren, consultar `baseHash`.
+
+**Por qué:** los tests (`tests/changeDetection.test.ts`) encontraron que comparar únicamente contra `baseHash` clasifica como "conflicto" el caso de dos dispositivos que crean el mismo contenido de forma independiente sin base común todavía (ej. primer sync de un vault ya idéntico en ambos lados). Comparar primero contra el valor actual del otro lado es más fuerte que comparar contra el histórico. `docs/{es,en}/referencia-tecnica/sync-engine.md` se actualizó para reflejar el algoritmo corregido.
+
+**Alcance no cubierto:** esta clasificación (RF-002) no distingue "el archivo nunca existió de este lado" de "el archivo se borró de este lado" — ambos casos aparecen como hash `undefined`. Propagación de borrado queda pendiente como RF futuro.
+
 ## 2026-08-16 — Cobertura de tests mínima 85%
 
 **Decisión:** cobertura mínima de 85% (líneas/branches) verificada en CI, obligatoria para hashing, merge, cifrado/descifrado y manejo de conflictos.

@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                     |
-| ------------- | ------------------------- |
-| **ID**        | RF-001                    |
-| **Nombre**    | Autenticación con Dropbox |
-| **Módulo**    | Autenticación             |
-| **Prioridad** | Alta                      |
+| Campo         | Valor                                                                                               |
+| ------------- | --------------------------------------------------------------------------------------------------- |
+| **ID**        | RF-001                                                                                              |
+| **Nombre**    | Autenticación con Dropbox                                                                           |
+| **Módulo**    | Autenticación                                                                                       |
+| **Prioridad** | Alta                                                                                                |
 | **Estado**    | En progreso — código listo, pendiente registrar la app en Dropbox (ver `src/auth/dropboxConfig.ts`) |
-| **Fecha**     | Agosto 2026               |
+| **Fecha**     | Agosto 2026                                                                                         |
 
 ---
 

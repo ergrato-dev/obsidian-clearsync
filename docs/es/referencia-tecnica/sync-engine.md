@@ -36,14 +36,15 @@
 
 1. Para cada archivo dentro del alcance (excluyendo patrones de RF-008), calcular `localHash = SHA-256(contenido en claro)` vía Web Crypto `subtle.digest`.
 2. Obtener `remoteHash` — calculado igual al descargar metadata/contenido del proveedor, o vía hash provisto por la API si es confiable (a validar contra Dropbox API v2 `content_hash`, que usa un algoritmo propio distinto de SHA-256 — **no asumir compatibilidad directa**, recalcular localmente tras descarga si es necesario).
-3. Comparar `localHash`, `remoteHash` contra `baseHash` de la Hash Cache:
+3. Primero comparar `localHash` contra `remoteHash` directamente: si son iguales, no hay nada que sincronizar — incluye el caso borde de dos dispositivos que crearon el mismo contenido de forma independiente, sin `baseHash` en común todavía. Comparar solo contra el histórico clasificaría ese caso erróneamente como conflicto (ver `tests/changeDetection.test.ts`).
+4. Si difieren, recién ahí comparar cada uno contra `baseHash` de la Hash Cache:
 
-| localHash == baseHash | remoteHash == baseHash | Resultado                          |
-| --------------------- | ---------------------- | ---------------------------------- |
-| Sí                    | Sí                     | Sin cambios — se omite             |
-| No                    | Sí                     | Cambio local — subir               |
-| Sí                    | No                     | Cambio remoto — descargar          |
-| No                    | No                     | Conflicto real — ver merge/binario |
+| localHash == remoteHash | localHash == baseHash | remoteHash == baseHash | Resultado                          |
+| ----------------------- | --------------------- | ---------------------- | ---------------------------------- |
+| Sí                      | —                     | —                      | Sin cambios — se omite             |
+| No                      | Sí                    | No                     | Cambio remoto — descargar          |
+| No                      | No                    | Sí                     | Cambio local — subir               |
+| No                      | No                    | No                     | Conflicto real — ver merge/binario |
 
 ## Merge de tres vías (RF-003)
 
