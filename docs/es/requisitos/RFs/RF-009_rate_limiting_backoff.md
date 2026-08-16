@@ -16,7 +16,7 @@
 | **Nombre**    | Manejo de rate-limiting y backoff de la API de Dropbox |
 | **Módulo**    | Sync Engine / Resiliencia                              |
 | **Prioridad** | Media                                                  |
-| **Estado**    | Planificado                                            |
+| **Estado**    | Implementado (pasos 1-4) — `src/net/{backoff,withBackoff}.ts`, ya conectado a las llamadas reales de RF-001. Paso 5 ("resto del ciclo no se bloquea por un archivo") no aplica todavía: no existe un ciclo de sync multi-archivo (Sync Engine) al que aplicarlo |
 | **Fecha**     | Agosto 2026                                            |
 
 ---

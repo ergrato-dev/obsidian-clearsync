@@ -96,6 +96,14 @@ Este documento es solo en español (instrucciones internas / bitácora técnica,
 
 **Alcance no cubierto:** `logSyncEvent()` importa `Notice` de Obsidian, así que queda fuera del gate de cobertura (mismo criterio que `DropboxAuthManager`/`SettingsTab`) — la lógica real (rotación del log, formato de entradas) sí está testeada en `SyncLog`/`formatLogEntry`.
 
+## 2026-08-16 — `withBackoff` envuelve `HttpRequester`, no cada función de `dropboxOAuth.ts`
+
+**Decisión:** el backoff/retry (RF-009) se implementa como un higher-order function que envuelve cualquier `HttpRequester` (`withBackoff(request): HttpRequester`), no como lógica dentro de `exchangeCodeForTokens`/`refreshAccessToken`/`fetchAccountEmail` individualmente.
+
+**Por qué:** mantiene `dropboxOAuth.ts` (RF-001) sin saber nada de reintentos — cada función sigue siendo "construir request, parsear response". `DropboxAuthManager.ts` arma un único `resilientRequester = withBackoff(obsidianRequester)` y lo pasa a las tres llamadas reales. El mismo wrapper sirve para cualquier futuro `SyncProvider` sin duplicar la lógica de backoff en cada uno (Strategy/Adapter, ver `docs/{es,en}/conceptos/patrones-arquitectonicos.md`).
+
+**Alcance:** `HttpResponse.headers` se agregó como campo opcional (retrocompatible — ningún test viejo se rompió) para poder leer `Retry-After`. RF-009 paso 5 ("el resto del ciclo no se bloquea por un archivo reintentando") no aplica todavía porque no existe un ciclo de sync multi-archivo — es la primera vez que un RF de esta lista queda genuinamente completo salvo por una parte que directamente no tiene sentido implementar sin su dependencia.
+
 ## 2026-08-16 — Cobertura de tests mínima 85%
 
 **Decisión:** cobertura mínima de 85% (líneas/branches) verificada en CI, obligatoria para hashing, merge, cifrado/descifrado y manejo de conflictos.
