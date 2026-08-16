@@ -1,6 +1,7 @@
-import { App, PluginSettingTab, Setting } from "obsidian";
+import { App, Notice, PluginSettingTab, Setting } from "obsidian";
 import type ClearSyncPlugin from "../main";
 import { resolveLocale, translate, type LocalePreference } from "../i18n";
+import type { DropboxTokens } from "../auth/DropboxTokens";
 
 export class ClearSyncSettingTab extends PluginSettingTab {
 	plugin: ClearSyncPlugin;
@@ -11,6 +12,10 @@ export class ClearSyncSettingTab extends PluginSettingTab {
 	}
 
 	display(): void {
+		void this.render();
+	}
+
+	private async render(): Promise<void> {
 		const { containerEl } = this;
 		containerEl.empty();
 
@@ -22,13 +27,9 @@ export class ClearSyncSettingTab extends PluginSettingTab {
 
 		containerEl.createEl("h2", { text: "ClearSync" });
 
-		// RF-001 — connect/disconnect Dropbox. Not implemented yet.
-		new Setting(containerEl)
-			.setName(t("settings.account.title"))
-			.setDesc(t("settings.account.notConnected"))
-			.addButton((button) => button.setButtonText(t("settings.account.connect")).setDisabled(true));
+		const tokens = await this.plugin.tokenStore.get();
+		this.renderAccountSection(containerEl, t, tokens);
 
-		// RF-011 — language override.
 		new Setting(containerEl).setName(t("settings.language.title")).addDropdown((dropdown) =>
 			dropdown
 				.addOption("auto", t("settings.language.auto"))
@@ -38,6 +39,46 @@ export class ClearSyncSettingTab extends PluginSettingTab {
 				.onChange(async (value) => {
 					this.plugin.settings.language = value as LocalePreference;
 					await this.plugin.saveSettings();
+					this.display();
+				}),
+		);
+	}
+
+	private renderAccountSection(
+		containerEl: HTMLElement,
+		t: (key: string) => string,
+		tokens: DropboxTokens | undefined,
+	): void {
+		const setting = new Setting(containerEl).setName(t("settings.account.title"));
+
+		// RF-001 / HU-001
+		if (tokens) {
+			setting.setDesc(
+				t("settings.account.connectedAs").replace("{email}", tokens.accountEmail ?? "?"),
+			);
+			setting.addButton((button) =>
+				button.setButtonText(t("settings.account.disconnect")).onClick(async () => {
+					await this.plugin.dropboxAuth.disconnect(); // RN-003
+					new Notice(t("settings.account.disconnected"));
+					this.display();
+				}),
+			);
+			return;
+		}
+
+		setting.setDesc(t("settings.account.notConnected"));
+		setting.addButton((button) =>
+			button
+				.setButtonText(t("settings.account.connect"))
+				.setCta()
+				.onClick(async () => {
+					button.setDisabled(true).setButtonText(t("settings.account.connecting"));
+					try {
+						await this.plugin.dropboxAuth.connect();
+					} catch {
+						// CA-001.4 — cancellation/failure stays non-alarming, no stack trace shown.
+						new Notice(t("settings.account.connectFailed"));
+					}
 					this.display();
 				}),
 		);

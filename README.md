@@ -16,6 +16,8 @@
 
 ## Español
 
+> ⚠️ **Estado: pre-alfa, en desarrollo activo.** Todavía no publicado en el directorio de community plugins ni en ningún otro canal. Sin garantías de ningún tipo (ver [LICENSE](LICENSE)) — hacé backup de tu vault antes de probarlo cuando exista una versión instalable. Proyecto no afiliado a Dropbox Inc. ni a Obsidian.
+
 **ClearSync** es un plugin open source para [Obsidian](https://obsidian.md) que sincroniza tu vault entre dispositivos, empezando por Dropbox.
 
 ### Por qué existe
@@ -71,6 +73,8 @@ El proyecto sigue un flujo **documentación primero**: ningún RF se implementa 
 ---
 
 ## English
+
+> ⚠️ **Status: pre-alpha, actively in development.** Not yet published to the community plugins directory or any other channel. No warranty of any kind (see [LICENSE](LICENSE)) — back up your vault before trying it once an installable version exists. This project is not affiliated with Dropbox Inc. or Obsidian.
 
 **ClearSync** is an open source plugin for [Obsidian](https://obsidian.md) that syncs your vault across devices, starting with Dropbox.
 

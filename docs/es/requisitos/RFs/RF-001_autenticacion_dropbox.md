@@ -16,7 +16,7 @@
 | **Nombre**    | Autenticación con Dropbox |
 | **Módulo**    | Autenticación             |
 | **Prioridad** | Alta                      |
-| **Estado**    | Planificado               |
+| **Estado**    | En progreso — código listo, pendiente registrar la app en Dropbox (ver `src/auth/dropboxConfig.ts`) |
 | **Fecha**     | Agosto 2026               |
 
 ---
