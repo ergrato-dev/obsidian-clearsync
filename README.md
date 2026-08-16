@@ -51,6 +51,7 @@ Detalle completo: [`docs/es/requisitos/restricciones.md`](docs/es/requisitos/res
 
 | Documento | Ruta |
 | --- | --- |
+| Roadmap | [`ROADMAP.md`](ROADMAP.md) |
 | Requisitos funcionales (RF) | [`docs/es/requisitos/RFs/`](docs/es/requisitos/RFs/) |
 | Requisitos no funcionales (RNF) | [`docs/es/requisitos/RNFs/`](docs/es/requisitos/RNFs/) |
 | Historias de usuario (HU) | [`docs/es/requisitos/HUs/`](docs/es/requisitos/HUs/) |
@@ -106,6 +107,7 @@ Full detail: [`docs/en/requisitos/restricciones.md`](docs/en/requisitos/restricc
 
 | Document | Path |
 | --- | --- |
+| Roadmap | [`ROADMAP.md`](ROADMAP.md) |
 | Functional requirements (RF) | [`docs/en/requisitos/RFs/`](docs/en/requisitos/RFs/) |
 | Non-functional requirements (RNF) | [`docs/en/requisitos/RNFs/`](docs/en/requisitos/RNFs/) |
 | User stories (HU) | [`docs/en/requisitos/HUs/`](docs/en/requisitos/HUs/) |
