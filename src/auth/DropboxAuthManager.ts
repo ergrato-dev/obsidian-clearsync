@@ -16,6 +16,7 @@ import { waitForAuthorizationCode } from "./CallbackServer";
 import type { TokenStore } from "./TokenStore";
 import type { DropboxTokens } from "./DropboxTokens";
 import { DROPBOX_CLIENT_ID, DROPBOX_REDIRECT_PORT, DROPBOX_REDIRECT_URI } from "./dropboxConfig";
+import { withBackoff } from "../net/withBackoff";
 
 const REFRESH_MARGIN_MS = 60_000;
 
@@ -30,8 +31,11 @@ export class DropboxSessionExpiredError extends Error {
 
 const obsidianRequester: HttpRequester = async ({ url, method, headers, body }) => {
 	const response = await requestUrl({ url, method, headers, body, throw: false });
-	return { status: response.status, json: () => response.json };
+	return { status: response.status, headers: response.headers, json: () => response.json };
 };
+
+// RF-009 — every real Dropbox call goes through this, not the raw requester.
+const resilientRequester = withBackoff(obsidianRequester);
 
 export class DropboxAuthManager {
 	constructor(private readonly tokenStore: TokenStore) {}
@@ -61,9 +65,9 @@ export class DropboxAuthManager {
 		const code = await callback.promise;
 		const tokens = await exchangeCodeForTokens(
 			{ code, codeVerifier, clientId: DROPBOX_CLIENT_ID, redirectUri: DROPBOX_REDIRECT_URI },
-			obsidianRequester,
+			resilientRequester,
 		);
-		const accountEmail = await fetchAccountEmail(tokens.accessToken, obsidianRequester);
+		const accountEmail = await fetchAccountEmail(tokens.accessToken, resilientRequester);
 
 		const stored: DropboxTokens = { ...tokens, accountEmail };
 		await this.tokenStore.set(stored);
@@ -84,7 +88,7 @@ export class DropboxAuthManager {
 		try {
 			const refreshed = await refreshAccessToken(
 				{ refreshToken: tokens.refreshToken, clientId: DROPBOX_CLIENT_ID },
-				obsidianRequester,
+				resilientRequester,
 			);
 			const stored: DropboxTokens = { ...refreshed, accountEmail: tokens.accountEmail };
 			await this.tokenStore.set(stored);

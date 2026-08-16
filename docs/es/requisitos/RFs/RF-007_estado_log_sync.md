@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                                        |
-| ------------- | -------------------------------------------- |
-| **ID**        | RF-007                                       |
-| **Nombre**    | Estado y log de sincronización visible en UI |
-| **Módulo**    | UI / Estado                                  |
-| **Prioridad** | Alta                                         |
+| Campo         | Valor                                                                                                                                                                  |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ID**        | RF-007                                                                                                                                                                 |
+| **Nombre**    | Estado y log de sincronización visible en UI                                                                                                                           |
+| **Módulo**    | UI / Estado                                                                                                                                                            |
+| **Prioridad** | Alta                                                                                                                                                                   |
 | **Estado**    | En progreso — `SyncStatus`/`SyncLog`/panel de Settings implementados y testeados; el log queda vacío hasta que exista un Sync Engine real que llame a `logSyncEvent()` |
-| **Fecha**     | Agosto 2026                                  |
+| **Fecha**     | Agosto 2026                                                                                                                                                            |
 
 ---
 

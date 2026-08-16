@@ -1,12 +1,14 @@
 // RF-001 — Dropbox OAuth2 (Authorization Code + PKCE) request builders and response
 // parsers. The HTTP call itself is injected (`HttpRequester`) so this stays testable
 // without a network or Obsidian's requestUrl (see
-// docs/{es,en}/referencia-tecnica/api-plugin-obsidian.md). Rate-limit/backoff (RF-009)
-// is not applied here yet — it wraps the shared HTTP layer once implemented.
+// docs/{es,en}/referencia-tecnica/api-plugin-obsidian.md). Rate-limit/backoff is
+// applied by wrapping a requester with net/withBackoff.ts (RF-009), not here.
 import type { DropboxTokens } from "./DropboxTokens";
 
 export interface HttpResponse {
 	status: number;
+	/** Optional: only net/withBackoff.ts (RF-009) reads this, for `Retry-After`. */
+	headers?: Record<string, string>;
 	json: () => unknown;
 }
 
