@@ -16,7 +16,7 @@
 | **Name**     | End-to-end content encryption |
 | **Module**   | Security / Encryption         |
 | **Priority** | Critical                      |
-| **Status**   | Planned                       |
+| **Status**   | In progress — Crypto Layer (`src/crypto/`) implemented and tested; still needs wiring to the real upload/download pipeline (Sync Engine doesn't orchestrate cycles yet) |
 | **Date**     | August 2026                   |
 
 ---

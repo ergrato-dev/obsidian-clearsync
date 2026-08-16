@@ -72,6 +72,14 @@ Este documento es solo en español (instrucciones internas / bitácora técnica,
 
 **Alcance no cubierto:** esta clasificación (RF-002) no distingue "el archivo nunca existió de este lado" de "el archivo se borró de este lado" — ambos casos aparecen como hash `undefined`. Propagación de borrado queda pendiente como RF futuro.
 
+## 2026-08-16 — PBKDF2 600.000 iteraciones + `Uint8Array<ArrayBuffer>` explícito
+
+**Decisión:** 600.000 iteraciones PBKDF2-HMAC-SHA256 (guía OWASP 2023 vigente); IV de 12 bytes para AES-GCM (recomendación NIST SP 800-38D); tipar `salt`/`iv` como `Uint8Array<ArrayBuffer>` en vez de `Uint8Array` a secas.
+
+**Por qué:** `tsc` rechazaba pasar un `Uint8Array` (tipo por defecto, potencialmente respaldado por `SharedArrayBuffer` en los tipos de lib actuales) donde la Web Crypto API espera `BufferSource`. La opción rápida era castear con `as BufferSource` en cada call site; se prefirió tipar la fuente (`generateSalt()`, el campo `iv` de `EncryptedPayload`) para que el tipo correcto se propague solo, sin casteos dispersos.
+
+**Rendimiento:** 600k iteraciones no volvieron lenta la suite de tests (68 tests, ~1.5s total) — Node/Electron usan la implementación nativa de Web Crypto.
+
 ## 2026-08-16 — Cobertura de tests mínima 85%
 
 **Decisión:** cobertura mínima de 85% (líneas/branches) verificada en CI, obligatoria para hashing, merge, cifrado/descifrado y manejo de conflictos.

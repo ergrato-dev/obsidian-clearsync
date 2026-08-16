@@ -10,14 +10,14 @@
 
 ## Identificación
 
-| Campo         | Valor                                      |
-| ------------- | ------------------------------------------ |
-| **ID**        | RF-002                                     |
-| **Nombre**    | Detección de cambios por hash de contenido |
-| **Módulo**    | Sync Engine                                |
-| **Prioridad** | Alta                                       |
+| Campo         | Valor                                                                                                                                                                                         |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ID**        | RF-002                                                                                                                                                                                        |
+| **Nombre**    | Detección de cambios por hash de contenido                                                                                                                                                    |
+| **Módulo**    | Sync Engine                                                                                                                                                                                   |
+| **Prioridad** | Alta                                                                                                                                                                                          |
 | **Estado**    | En progreso — motor de hashing/clasificación implementado y testeado; falta integrarlo a un recorrido real del vault y a un `SyncProvider` (Sync Engine todavía no orquesta ciclos completos) |
-| **Fecha**     | Agosto 2026                                |
+| **Fecha**     | Agosto 2026                                                                                                                                                                                   |
 
 ---
 
