@@ -16,6 +16,15 @@ function fakeAccess() {
 }
 
 describe("EncryptionManager", () => {
+	it("hasExistingPassword() is false before unlock(), true after (RF-006 wizard step)", async () => {
+		const manager = new EncryptionManager(
+			new SaltStore(new PluginDataStore<PluginDataShape>(fakeAccess())),
+		);
+		await expect(manager.hasExistingPassword()).resolves.toBe(false);
+		await manager.unlock("first-password");
+		await expect(manager.hasExistingPassword()).resolves.toBe(true);
+	});
+
 	it("is not unlocked until unlock() is called", () => {
 		const manager = new EncryptionManager(
 			new SaltStore(new PluginDataStore<PluginDataShape>(fakeAccess())),

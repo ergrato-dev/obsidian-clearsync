@@ -11,4 +11,22 @@ export const en: Record<string, string> = {
 	"settings.account.sessionExpired": "Session expired, reconnect.",
 	"settings.language.title": "Language",
 	"settings.language.auto": "Automatic",
+	"settings.setup.title": "Set up ClearSync",
+	"settings.setup.stepDropboxDesc": "Step 1 of 3 — connect Dropbox to continue.",
+	"settings.setup.encryptionTitle": "Encryption password",
+	"settings.setup.encryptionStepDesc": "Step 2 of 3",
+	"settings.setup.encryptionPasswordPlaceholder": "Encryption password",
+	"settings.setup.encryptionConfirmPlaceholder": "Confirm password",
+	"settings.setup.encryptionWarning":
+		"This password never leaves your device and is never sent anywhere. If you lose it, your synced content becomes permanently unreadable.",
+	"settings.setup.encryptionMismatch": "Passwords don't match.",
+	"settings.setup.encryptionConfirmButton": "Set password",
+	"settings.setup.encryptionUnlockDesc": "Enter your vault password to continue.",
+	"settings.setup.encryptionUnlockButton": "Unlock",
+	"settings.setup.folderTitle": "Remote folder",
+	"settings.setup.folderStepDesc": "Step 3 of 3",
+	"settings.setup.folderPlaceholder": "e.g. ClearSync",
+	"settings.setup.folderConfirmButton": "Confirm folder",
+	"settings.setup.complete":
+		"✓ Setup complete. Automatic sync will start once the sync engine is implemented.",
 };

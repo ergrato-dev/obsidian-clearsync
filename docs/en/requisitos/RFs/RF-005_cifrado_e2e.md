@@ -10,14 +10,14 @@
 
 ## Identification
 
-| Field        | Value                         |
-| ------------ | ----------------------------- |
-| **ID**       | RF-005                        |
-| **Name**     | End-to-end content encryption |
-| **Module**   | Security / Encryption         |
-| **Priority** | Critical                      |
+| Field        | Value                                                                                                                                                                   |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ID**       | RF-005                                                                                                                                                                  |
+| **Name**     | End-to-end content encryption                                                                                                                                           |
+| **Module**   | Security / Encryption                                                                                                                                                   |
+| **Priority** | Critical                                                                                                                                                                |
 | **Status**   | In progress — Crypto Layer (`src/crypto/`) implemented and tested; still needs wiring to the real upload/download pipeline (Sync Engine doesn't orchestrate cycles yet) |
-| **Date**     | August 2026                   |
+| **Date**     | August 2026                                                                                                                                                             |
 
 ---
 
@@ -68,3 +68,4 @@ All vault content is encrypted locally before being uploaded to the sync provide
 - RN-001: The encryption password is never sent to Dropbox nor stored in plain text (RS-001).
 - RN-002: File names and folder structure are evaluated for encryption/obfuscation if the provider exposes them via its API (to be defined during implementation, RT-005).
 - RN-003: Losing the encryption password means losing access to the remote content — the plugin warns about this explicitly during initial setup.
+- RN-004: The key-derivation salt is stored in the remote vault (unencrypted — it isn't secret), not only locally. A second device linking to an existing vault (RF-006 CA-002.4) must download that salt before deriving its key; if each device generates its own local salt, the same password derives different keys and neither device can decrypt the other's content. Found while implementing RF-006 — see `AUDITORIA.md`. Pending a real `SyncProvider` implementation to complete.

@@ -59,13 +59,20 @@ describe("HashCache", () => {
 	it("does not clobber other persisted keys (settings, dropboxAuth)", async () => {
 		const access = fakeAccess();
 		const dataStore = new PluginDataStore<PluginDataShape>(access);
-		await dataStore.patch({ settings: { language: "en", excludePatterns: [] } });
+		await dataStore.patch({
+			settings: { language: "en", excludePatterns: [], remoteFolder: "", autoSyncEnabled: false },
+		});
 
 		const cache = new HashCache(dataStore);
 		await cache.set(entryA);
 
 		const data = await dataStore.read();
-		expect(data.settings).toEqual({ language: "en", excludePatterns: [] });
+		expect(data.settings).toEqual({
+			language: "en",
+			excludePatterns: [],
+			remoteFolder: "",
+			autoSyncEnabled: false,
+		});
 		expect(data.hashCache).toEqual({ "a.md": entryA });
 	});
 });

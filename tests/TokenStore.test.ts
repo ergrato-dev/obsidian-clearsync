@@ -36,7 +36,9 @@ describe("TokenStore", () => {
 	it("clear() removes tokens (RN-003) without touching other persisted keys", async () => {
 		const access = fakeAccess();
 		const dataStore = new PluginDataStore<PluginDataShape>(access);
-		await dataStore.patch({ settings: { language: "en", excludePatterns: [] } });
+		await dataStore.patch({
+			settings: { language: "en", excludePatterns: [], remoteFolder: "", autoSyncEnabled: false },
+		});
 
 		const store = new TokenStore(dataStore);
 		await store.set(sampleTokens);
@@ -44,6 +46,11 @@ describe("TokenStore", () => {
 
 		await expect(store.get()).resolves.toBeUndefined();
 		const remaining = await dataStore.read();
-		expect(remaining.settings).toEqual({ language: "en", excludePatterns: [] });
+		expect(remaining.settings).toEqual({
+			language: "en",
+			excludePatterns: [],
+			remoteFolder: "",
+			autoSyncEnabled: false,
+		});
 	});
 });
