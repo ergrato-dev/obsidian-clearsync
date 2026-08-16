@@ -29,4 +29,6 @@ export const en: Record<string, string> = {
 	"settings.setup.folderConfirmButton": "Confirm folder",
 	"settings.setup.complete":
 		"✓ Setup complete. Automatic sync will start once the sync engine is implemented.",
+	"settings.log.title": "Sync log",
+	"settings.log.empty": "No sync operations yet.",
 };

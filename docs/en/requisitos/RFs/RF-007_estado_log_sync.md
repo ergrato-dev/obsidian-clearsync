@@ -16,7 +16,7 @@
 | **Name**     | Sync status and log visible in the UI |
 | **Module**   | UI / Status                           |
 | **Priority** | High                                  |
-| **Status**   | Planned                               |
+| **Status**   | In progress — `SyncStatus`/`SyncLog`/Settings panel implemented and tested; the log stays empty until a real Sync Engine exists to call `logSyncEvent()` |
 | **Date**     | August 2026                           |
 
 ---

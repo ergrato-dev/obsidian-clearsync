@@ -88,6 +88,14 @@ Este documento es solo en español (instrucciones internas / bitácora técnica,
 
 **Pendiente:** la lectura/escritura real del salt remoto necesita un `SyncProvider` funcional (todavía no existe, ver RT-004). RF-006 documenta este bloqueo explícitamente en su campo "Estado" y en `src/setup/vaultLinkMode.ts`.
 
+## 2026-08-16 — `logSyncEvent()` como único punto de entrada para loguear
+
+**Decisión:** en vez de dejar que cualquier módulo futuro llame `SyncLog.append()` directamente, `logSyncEvent()` es el único punto de entrada previsto: siempre loguea, y además dispara un `Notice` cuando `result === "error"` o `action === "conflict"`.
+
+**Por qué:** RF-007 RN-001 exige que ningún fallo pase sin dejar rastro visible — no solo en el log (que el usuario tiene que ir a mirar), sino también como notificación. Si cada futuro call site pudiera elegir entre loguear con o sin notificar, sería fácil que alguien llame `SyncLog.append()` a secas para un error y rompa RN-001 sin querer. Centralizar la decisión en una sola función la hace imposible de saltear por accidente.
+
+**Alcance no cubierto:** `logSyncEvent()` importa `Notice` de Obsidian, así que queda fuera del gate de cobertura (mismo criterio que `DropboxAuthManager`/`SettingsTab`) — la lógica real (rotación del log, formato de entradas) sí está testeada en `SyncLog`/`formatLogEntry`.
+
 ## 2026-08-16 — Cobertura de tests mínima 85%
 
 **Decisión:** cobertura mínima de 85% (líneas/branches) verificada en CI, obligatoria para hashing, merge, cifrado/descifrado y manejo de conflictos.
